@@ -14,8 +14,9 @@
 "Plugin manager- vim-plug
 call plug#begin()
 
+Plug 'https://github.com/preservim/nerdtree' " NerdTree
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
-"Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
@@ -69,11 +70,6 @@ let g:user_emmet_leader_key='<tab>'
 
 "supposed to format on save but it's not working
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
-
-
-
-
-
 
 "bufferline setup
 " In your init.lua or init.vim
