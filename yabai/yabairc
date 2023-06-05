@@ -1,0 +1,38 @@
+#bsp, stack or float for options
+yabai -m config layout bsp
+yabai -m config window_placement second_child
+
+
+#padding
+yabai -m config top_padding 12
+yabai -m config bottom_padding 12
+yabai -m config left_padding 12
+yabai -m config right_padding 12
+yabai -m config window_gap 12
+
+
+#mouse settings
+yabai -m config mouse_follows_focus on
+
+#mouse modifier is alt
+yabai -m config mouse-modifier alt
+
+#alt + leftclick to drag windwos
+yabai -m config mouse_action1 move
+
+#alt click + drag to resize
+yabai -m config mouse_action2 resize
+
+#whenever a window is dragged to the center of another window it will swap them
+yabai -m mouse_drop_action swap
+
+
+#list of apps to ignore
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add app="^Digital Colour Meter" manage=off
+yabai -m rule --add app="^Preview" manage=off	
+yabai -m rule --add app="^Google Chrome$" title="^devtools" manage=off
+yabai -m rule --add app="Chrome" title="^DevTools$" manage=off
+
