@@ -37,5 +37,5 @@ alias config='cd ~/.dotfiles'
 
 Will cd you back to wordpress root from within a theme/plugin folder.
 ```
-alias websiteroot='cd ../../../../../'
+alias wproot='cd ../../../../../'
 ```
