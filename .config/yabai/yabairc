@@ -33,6 +33,9 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Digital Colour Meter" manage=off
 yabai -m rule --add app="^Preview" manage=off	
-yabai -m rule --add app="^Google Chrome$" title="^devtools" manage=off
-yabai -m rule --add app="Chrome" title="^DevTools$" manage=off
+# yabai -m rule --add app="^Google Chrome$" title="^devtools" manage=off
+# yabai -m rule --add app="Chrome" title="^DevTools$" manage=off
+yabai -m rule --add app="Simulator" manage=off
 
+#float/unfloat current window
+#ref rockyzhand24 answer: https://github.com/koekeishiya/yabai/issues/681

@@ -5,7 +5,7 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
-  opacity: 0.8
+  opacity: 0.92
     #remove title bar
   decorations: "buttonless"
 
@@ -48,7 +48,10 @@ colors:
 
 live_config_reload: true
 
-  
+
+font:
+  normal:
+    family: "MesloLGS NF"
 
 key_bindings:
   #- { key: Paste,                                action: Paste          }
@@ -142,4 +145,3 @@ key_bindings:
   - { key: Right,    mods: Command, chars: "\x1bOF",   mode: AppCursor   } # End
   - { key: Back,     mods: Command, chars: "\x15"                        } # Delete line
   - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    } # Delete word
-
