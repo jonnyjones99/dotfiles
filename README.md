@@ -20,8 +20,10 @@ Rather than symlinking each file you can use GNU stow to quickly symlink the ent
 
 ## Other Things I use in my setup
 - OhMyZsh
-- Powerlevel10k for pretty terminal (https://github.com/romkatv/powerlevel10k)
-- btop for system stats
+- LazyGit (https://github.com/jesseduffield/lazygit) <-- Must have for Git workflow 
+- Powerlevel10k (https://github.com/romkatv/powerlevel10k) <-- Pretty looking terminal
+- btop (https://github.com/aristocratos/btop) <-- Resource monitoring
+- Neofetch (https://github.com/dylanaraps/neofetch) <--
 
 
 ### Alias' I use
