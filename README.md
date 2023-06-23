@@ -32,4 +32,10 @@ alias sites='cd ~/Local\ Sites/'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias config='cd ~/.dotfiles'
+```
+
+Will cd you back to wordpress root from within a theme/plugin folder.
+```
+alias websiteroot='cd ../../../../../'
 ```
