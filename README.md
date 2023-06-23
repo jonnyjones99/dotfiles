@@ -28,5 +28,8 @@ Rather than symlinking each file you can use GNU stow to quickly symlink the ent
 
 ### Alias' I use
 ```
-Alias sites='cd ~/Local\ Sites/'
+alias sites='cd ~/Local\ Sites/'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 ```
