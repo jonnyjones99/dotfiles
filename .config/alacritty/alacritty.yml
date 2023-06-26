@@ -51,7 +51,7 @@ live_config_reload: true
 
 font:
   normal:
-    family: "MesloLGS NF"
+    family: "JetBrainsMono Nerd Font"
 
 key_bindings:
   #- { key: Paste,                                action: Paste          }
