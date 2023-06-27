@@ -38,5 +38,6 @@ alias config='cd ~/.dotfiles'
 Useful wordpress ones to jump around wp directory
 ```
 alias wpRoot='cd ../../../../../'
-alias intoTheme='cd app/public/wp-content/themes/'
+alias wpTheme='cd app/public/wp-content/themes/'
+alias wpPlugin='cd app/public/wp-content/plugins/'
 ```
