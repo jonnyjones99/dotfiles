@@ -208,7 +208,7 @@ EOF
 
 "colorscheme
 "colorscheme spacecamp
-"
+
 colorscheme tokyonight-night
 let g:lightline = {'colorscheme': 'tokyonight'}
 
