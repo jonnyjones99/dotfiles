@@ -151,35 +151,54 @@ require("tokyonight").setup({
 
 --bufferline setup
 require('bufferline').setup({
-    options = {
-        show_buffer_close_icons = true,
-		themeable = "true",
-		numbers= "ordinal",	
-		offsets = {
-			{
-				filetype = "NvimTree",
-				text = "File Explorer",
-				highlight = "Directory",	
-				text_align = "left",
-				seperator = true,
-			}
-		},
-		highlights = { 
-			pick = {
-				guifg = '#100e23',
-				guibg = '#87DFEB'
-			},
-			pick_selected = {
-				guifg = '#100e23',
-				guibg = '#FFE6B3'
-			},
-			pick_visible = {
-				guifg = '#100e23',
-				guibg = '#87DFEB'
-			},
-		},
-	}
-  })
+options = {
+    show_buffer_close_icons = true,
+    themeable = "true",
+    numbers= "ordinal",	
+    offsets = {
+        {
+                filetype = "NvimTree",
+                text = "File Explorer",
+                highlight = "Directory",	
+                text_align = "left",
+                seperator = true,
+        }
+        },
+        highlights = { 
+            pick = {
+                guifg = '#100e23',
+                guibg = '#87DFEB'
+                },
+                pick_selected = {
+                    guifg = '#100e23',
+                    guibg = '#FFE6B3'
+                    },
+                    pick_visible = {
+                        guifg = '#100e23',
+                        guibg = '#87DFEB'
+                        },
+                    },
+        }
+})
+
+
+require("indent_blankline").setup {
+    show_end_of_line = true,
+    buftype_exclude = {
+        "nofile",
+        "terminal",
+    },
+    filetype_exclude = {
+        "help",
+        "startify",
+        "aerial",
+        "NvimTree",
+    },
+    show_trailing_blankline_indent = false,
+    char = "▏.",
+    context_char = "▏",
+}
+
 
 --remove the '~' at the end of buffers
 --TODO: they are quite useful when editing files so would be nice if it just did it for NvimTree.
