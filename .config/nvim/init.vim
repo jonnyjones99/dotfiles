@@ -52,7 +52,6 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'mhinz/vim-startify'
 "Formatting
 Plug 'sbdchd/neoformat'
-
 call plug#end()
 
 
@@ -70,7 +69,6 @@ nmap // :Files<CR>
 nnoremap <C-l> :BufferLineCycleNext<CR>
 nnoremap <C-h> :BufferLineCyclePrev<CR>	
 
-
 "scss support for coc
 autocmd FileType scss setl iskeyword+=@-@
 
@@ -86,11 +84,24 @@ hi Search cterm=NONE ctermbg=LightMagenta ctermfg=black
 "inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
 "inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
 
+let g:user_emmet_leader_key = '<C-e>'
+let g:user_emmet_expandabbr_key = '<C-x><C-e>'
+imap <silent><expr> <Tab> <SID>expand()
+
+function! s:expand()
+    if pumvisible()
+        return "\<C-y>"
+    endif
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1]  =~# '\s'
+        return "\<Tab>"
+    endif
+    return "\<C-x>\<C-e>"
+endfunction
+
 "emmet set tab to be leader key
 "can do something like .hello followed by 'TAB + ,' to get <div class="hello"></div>	
-"let g:user_emmet_leader_key='<tab>'
 let g:user_emmet_leader_key='<tab>'
-
 
 "startify config
 let g:startify_bookmarks = [ { 'c': '~/.config/nvim/init.vim' }, { 'z': '~/.config' } ]
@@ -171,12 +182,10 @@ require('bufferline').setup({
 	}
   })
 
-
 --remove the '~' at the end of buffers
 --TODO: they are quite useful when editing files so would be nice if it just did it for NvimTree.
 vim.opt.fillchars:append { eob = " " }
 EOF
-
 
 
 "colorscheme
