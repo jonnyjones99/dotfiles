@@ -44,7 +44,6 @@ Plug 'https://github.com/github/copilot.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 "better tabs and buffer
-Plug 'nvim-tree/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 "indent lines
 Plug 'lukas-reineke/indent-blankline.nvim'
