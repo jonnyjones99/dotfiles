@@ -195,7 +195,7 @@ require("indent_blankline").setup {
         "NvimTree",
     },
     show_trailing_blankline_indent = false,
-    char = "▏.",
+    char = "▏",
     context_char = "▏",
 }
 
