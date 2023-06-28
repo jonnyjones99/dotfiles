@@ -1,16 +1,23 @@
 "General vim settings:
-:set number
-:set relativenumber
-:set autoindent
-:set tabstop=4
-:set shiftwidth=4
+:set number                 "Show line numbers 
+:set relativenumber         "Show relative line numbers
+:set autoindent             "Auto indent
+:set tabstop=4              "Set tabstop to 4 spaces
+:set shiftwidth=4           "Set shiftwidth to 4 spaces
 :set smarttab
 :set expandtab
 :set softtabstop=4
-:set mouse=a
+:set mouse=a                "Enable mouse
 :set background=dark
 :set nowrap
-:set termguicolors
+:set termguicolors          "Some terminals require this to be set
+:set showtabline=2
+:set scrolloff=8            "Keep cursor 8 lines from top/bottom when scrolling
+:set smartindent            "Make indenting smart
+:set smartcase
+:set undofile               "Save undo history
+:set cursorline             "Highlight current line
+
 :syntax on
 :set ft=phtml
 
@@ -78,25 +85,6 @@ hi CursorLine guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 hi NonText guibg=NONE ctermbg=NONE
 hi Search cterm=NONE ctermbg=LightMagenta ctermfg=black
-
-"set tab to autocomplete coc
-"inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
-"inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
-
-let g:user_emmet_leader_key = '<C-e>'
-let g:user_emmet_expandabbr_key = '<C-x><C-e>'
-imap <silent><expr> <Tab> <SID>expand()
-
-function! s:expand()
-    if pumvisible()
-        return "\<C-y>"
-    endif
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1]  =~# '\s'
-        return "\<Tab>"
-    endif
-    return "\<C-x>\<C-e>"
-endfunction
 
 "emmet set tab to be leader key
 "can do something like .hello followed by 'TAB + ,' to get <div class="hello"></div>	
