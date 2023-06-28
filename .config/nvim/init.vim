@@ -37,6 +37,7 @@ Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'https://github.com/tpope/vim-commentary' " gcc to comment out a line (takes a count), gc to comment out the target of a motion. gcu uncomments a set of adjacent commented
 Plug 'https://github.com/mattn/emmet-vim'
+Plug 'https://github.com/jiangmiao/auto-pairs' " Auto pairs
 
 "Themes:
 "Plug 'https://github.com/rafi/awesome-vim-colorschemes'
@@ -69,11 +70,11 @@ autocmd FileType php setlocal autoindent
 nnoremap <C-t> :NvimTreeToggle<CR>	
 
 "Remaps for fuzzyfinder
-nmap // :Files<CR>
+nmap \ :Files<CR>
 
 "Remaps for bufferline
-nnoremap <C-l> :BufferLineCycleNext<CR>
-nnoremap <C-h> :BufferLineCyclePrev<CR>	
+" nnoremap <C-l> :BufferLineCycleNext<CR>
+" nnoremap <C-h> :BufferLineCyclePrev<CR>	
 
 "scss support for coc
 autocmd FileType scss setl iskeyword+=@-@
@@ -139,35 +140,36 @@ require("tokyonight").setup({
 
 --bufferline setup
 require('bufferline').setup({
-options = {
-    show_buffer_close_icons = true,
-    themeable = "true",
-    numbers= "ordinal",	
-    offsets = {
-        {
+    options = {
+        show_buffer_close_icons = true,
+        themeable = "true",
+        --numbers= "ordinal",	
+        offsets = {
+            {
                 filetype = "NvimTree",
                 text = "File Explorer",
                 highlight = "Directory",	
                 text_align = "left",
                 seperator = true,
-        }
+            }
         },
         highlights = { 
             pick = {
                 guifg = '#100e23',
                 guibg = '#87DFEB'
+            },
+            pick_selected = {
+                guifg = '#100e23',
+                guibg = '#FFE6B3'
+            },
+            pick_visible = {
+                guifg = '#100e23',
+                guibg = '#87DFEB'
                 },
-                pick_selected = {
-                    guifg = '#100e23',
-                    guibg = '#FFE6B3'
-                    },
-                    pick_visible = {
-                        guifg = '#100e23',
-                        guibg = '#87DFEB'
-                        },
-                    },
+            },
         }
-})
+    }
+)
 
 
 require("indent_blankline").setup {
@@ -202,4 +204,35 @@ let g:lightline = {'colorscheme': 'tokyonight'}
 
 "colorscheme catppuccin_mocha
 "let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+
+
+function! s:swap_lines(n1, n2)
+    let line1 = getline(a:n1)
+    let line2 = getline(a:n2)
+    call setline(a:n1, line2)
+    call setline(a:n2, line1)
+endfunction
+
+function! s:swap_up()
+    let n = line('.')
+    if n == 1
+        return
+    endif
+
+    call s:swap_lines(n, n - 1)
+    exec n - 1
+endfunction
+
+function! s:swap_down()
+    let n = line('.')
+    if n == line('$')
+        return
+    endif
+
+    call s:swap_lines(n, n + 1)
+    exec n + 1
+endfunction
+
+noremap <silent> <C-k> :call <SID>swap_up()<CR>
+noremap <silent> <C-j> :call <SID>swap_down()<CR>
 
