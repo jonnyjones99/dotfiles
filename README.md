@@ -1,5 +1,5 @@
 # dotfiles
- My dotfiles config for vim/tmux/alacritty/yabai/skhd
+ My dotfiles config for [vim](https://neovim.io/)/[tmux](https://github.com/tmux/tmux/wiki)/[alacritty](https://github.com/alacritty/alacritty)/[yabai](https://github.com/koekeishiya/yabai)/[skhd](https://github.com/koekeishiya/skhd)
 
 ## Easy Install:
 
