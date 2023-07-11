@@ -24,14 +24,23 @@
 "Plugin manager- vim-plug
 call plug#begin()
 
+
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
-Plug 'nvim-tree/nvim-web-devicons' " optional for nvim tree icons
-Plug 'nvim-tree/nvim-tree.lua'
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+
+"Tree
+"Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons' " optional for nvim tree icons
+Plug 'https://github.com/nvim-neo-tree/neo-tree.nvim'
+Plug 'nvim-lua/plenary.nvim'
+"Plug 'kyazdani42/nvim-web-devicons'
+Plug 'MunifTanjim/nui.nvim'
 
 "Status bar:
 "Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'itchyny/lightline.vim'
+
+Plug 'rcarriga/nvim-notify' "Notifications
 
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
@@ -43,11 +52,11 @@ Plug 'https://github.com/jiangmiao/auto-pairs' " Auto pairs
 "Plug 'https://github.com/rafi/awesome-vim-colorschemes'
 "Used to use spacecamp from awesoemvimcolorscehems
 Plug 'https://github.com/folke/tokyonight.nvim'
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/mbbill/undotree'
 Plug 'https://github.com/github/copilot.vim'
+
 "fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -67,14 +76,20 @@ call plug#end()
 autocmd FileType php setlocal autoindent
 
 "Remaps for nvimtree
-nnoremap <C-t> :NvimTreeToggle<CR>	
+"nnoremap <C-t> :NvimTreeToggle<CR>	
+nnoremap <C-t> :Neotree<CR>
 
 "Remaps for fuzzyfinder
-nmap \ :Files<CR>
+nmap \ <:Files<CR>
+
+"Remap for undotree
+"nnoremap <C-u> :UndotreeToggle<CR>
 
 "Remaps for bufferline
-" nnoremap <C-l> :BufferLineCycleNext<CR>
-" nnoremap <C-h> :BufferLineCyclePrev<CR>	
+"nnoremap <C-l> :BufferLineCycleNext<CR>
+"nnoremap <C-h> :BufferLineCyclePrev<CR>	
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-h> :tabprev<CR>
 
 "scss support for coc
 autocmd FileType scss setl iskeyword+=@-@
@@ -98,6 +113,7 @@ let g:startify_custom_header =
 			\ startify#pad(readfile('/Users/jonny/Documents/vim-ascii-cat.txt'))
 
 
+
 "LUA CONFIG BELOW
 
 set termguicolors
@@ -112,7 +128,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- empty setup using defaults
-require("nvim-tree").setup()
+-- require("nvim-tree").setup()
 
 
 -- tokyonight setup
@@ -145,32 +161,19 @@ require('bufferline').setup({
         themeable = "true",
         --numbers= "ordinal",	
         offsets = {
-            {
-                filetype = "NvimTree",
-                text = "File Explorer",
-                highlight = "Directory",	
-                text_align = "left",
-                seperator = true,
-            }
-        },
-        highlights = { 
-            pick = {
-                guifg = '#100e23',
-                guibg = '#87DFEB'
-            },
-            pick_selected = {
-                guifg = '#100e23',
-                guibg = '#FFE6B3'
-            },
-            pick_visible = {
-                guifg = '#100e23',
-                guibg = '#87DFEB'
-                },
-            },
-        }
-    }
-)
+          {
+            filetype = "neo-tree",
+            text = "Neo-tree",
+            highlight = "Directory",
+            text_align = "left",
+          },
+    },
+    
+}})
 
+
+-- Use NVIM-notify for notifcations
+vim.notify = require("notify")
 
 require("indent_blankline").setup {
     show_end_of_line = true,
