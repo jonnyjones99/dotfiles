@@ -42,6 +42,9 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'rcarriga/nvim-notify' "Notifications
 
+Plug 'stevearc/dressing.nvim' "Better VIM UI (apparently)
+
+
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'https://github.com/tpope/vim-commentary' " gcc to comment out a line (takes a count), gc to comment out the target of a motion. gcu uncomments a set of adjacent commented
