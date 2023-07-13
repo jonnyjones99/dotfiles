@@ -86,7 +86,7 @@ nnoremap <C-t> :Neotree<CR>
 nmap \ <:Files<CR>
 
 "Remap for undotree
-"nnoremap <C-u> :UndotreeToggle<CR>
+nnoremap <C-u> :UndotreeToggle<CR>
 
 "Remaps for bufferline
 "nnoremap <C-l> :BufferLineCycleNext<CR>
@@ -107,7 +107,9 @@ hi Search cterm=NONE ctermbg=LightMagenta ctermfg=black
 
 "emmet set tab to be leader key
 "can do something like .hello followed by 'TAB + ,' to get <div class="hello"></div>	
-let g:user_emmet_leader_key='<tab>'
+let g:user_emmet_expandabbr_key='<Tab>'
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
 
 "startify config
 let g:startify_bookmarks = [ { 'c': '~/.config/nvim/init.vim' }, { 'z': '~/.config' } ]
