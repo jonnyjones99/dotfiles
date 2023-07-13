@@ -136,6 +136,9 @@ vim.opt.termguicolors = true
 -- require("nvim-tree").setup()
 
 
+
+
+
 -- tokyonight setup
 require("tokyonight").setup({
   style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
@@ -176,6 +179,22 @@ require('bufferline').setup({
     
 }})
 
+--neo tree setup
+require('neo-tree').setup {
+    filesystem = {
+        filtered_items = {
+            visible = true,
+            show_hidden_count = true,
+            hide_dotfiles = false,
+            hide_gitignored = true,
+            hide_by_name = {
+               '.git',
+               '.DS_Store',
+               'thumbs.db',
+            },
+        },
+    },
+}
 
 -- Use NVIM-notify for notifcations
 vim.notify = require("notify")

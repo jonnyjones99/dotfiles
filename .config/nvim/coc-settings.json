@@ -1,3 +1,5 @@
 {
-	"coc.preferences.formatOnSaveFiletypes": ["css", "markdown"]
+	"coc.preferences.formatOnSave": ["css", "markdown", "php", "html", "js", "jsx", "ts", "tsx"],
+    "coc.preferences.jumpCommand": "tabe",
+    "coc.preferences.formatOnType": true,
 }
