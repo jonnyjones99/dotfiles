@@ -83,7 +83,7 @@ autocmd FileType php setlocal autoindent
 nnoremap <C-t> :Neotree<CR>
 
 "Remaps for fuzzyfinder
-nmap \ <:Files<CR>
+nnoremap <C-\> <:Files<CR>
 
 "Remap for undotree
 nnoremap <C-u> :UndotreeToggle<CR>

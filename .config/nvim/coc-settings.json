@@ -1,5 +1,14 @@
 {
-	"coc.preferences.formatOnSave": ["css", "markdown", "php", "html", "js", "jsx", "ts", "tsx"],
-    "coc.preferences.jumpCommand": "tabe",
+    "coc.preferences.formatOnSave": [
+        "css",
+        "markdown",
+        "php",
+        "html",
+        "js",
+        "jsx",
+        "ts",
+        "tsx"
+    ],
+    "coc.preferences.jumpCommand": "tab",
     "coc.preferences.formatOnType": true,
 }
