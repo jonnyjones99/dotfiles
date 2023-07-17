@@ -21,6 +21,10 @@
 :syntax on
 :set ft=phtml
 
+
+" Leader
+let mapleader = " "
+
 "Plugin manager- vim-plug
 call plug#begin()
 
@@ -41,9 +45,11 @@ Plug 'MunifTanjim/nui.nvim'
 Plug 'itchyny/lightline.vim'
 
 Plug 'rcarriga/nvim-notify' "Notifications
-
 Plug 'stevearc/dressing.nvim' "Better VIM UI (apparently)
 
+"Colors:
+Plug 'nvim-lua/plenary.nvim' " don't forget to add this one if you don't have it yet!
+Plug 'ThePrimeagen/harpoon'
 
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
@@ -83,7 +89,7 @@ autocmd FileType php setlocal autoindent
 nnoremap <C-t> :Neotree<CR>
 
 "Remaps for fuzzyfinder
-nnoremap <C-\> <:Files<CR>
+nnoremap \ <:Files<CR>
 
 "Remap for undotree
 nnoremap <C-u> :UndotreeToggle<CR>
@@ -109,6 +115,14 @@ hi Search cterm=NONE ctermbg=LightMagenta ctermfg=black
 "can do something like .hello followed by 'TAB + ,' to get <div class="hello"></div>	
 let g:user_emmet_expandabbr_key='<Tab>'
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+
+"harpoon
+nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
+nnoremap <leader>e :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <leader>n :lua require("harpoon.ui").nav_next()<CR>
+nnoremap <leader>p :lua require("harpoon.ui").nav_prev()<CR>
+
 
 
 "startify config
@@ -198,6 +212,10 @@ require('neo-tree').setup {
 
 -- Use NVIM-notify for notifcations
 vim.notify = require("notify")
+
+
+require("harpoon").setup({
+})
 
 require("indent_blankline").setup {
     show_end_of_line = true,
