@@ -17,6 +17,7 @@
 :set smartcase
 :set undofile               "Save undo history
 :set cursorline             "Highlight current line
+:set clipboard^=unnamed     "yank and paste uses system clipboard
 
 :syntax on
 :set ft=phtml
