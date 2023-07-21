@@ -18,14 +18,15 @@ require("lazy").setup({
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-            require("plugins.tokyonight")
-            vim.cmd("colorscheme tokyonight")
+	    require("plugins.tokyonight")
+	    vim.cmd("colorscheme tokyonight")
 		end,
 	},
 
     {
         "nvim-tree/nvim-tree.lua",
         cmd = "NvimTreeToggle",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("plugins.nvim-tree")
         end,
@@ -70,6 +71,7 @@ require("lazy").setup({
     {
         "ibhagwan/fzf-lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+        -- cmd = "FzfLua files",
         config = function()
         -- calling `setup` is optional for customization
             require("fzf-lua").setup({})
@@ -86,5 +88,54 @@ require("lazy").setup({
     { "mbbill/undotree" },
     { "github/copilot.vim" },
     { "lukas-reineke/indent-blankline.nvim" },
+
+    --autocomplete and lsp config taken from: https://www.youtube.com/watch?v=vdn_pKJUda8&t=2820s
+    
+    --Autocomplete
+    {
+        "hrsh7th/nvim-cmp",
+        requires = {
+            --autocomplete engines
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            
+            --snippets
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+	    "rafamadriz/friendly-snippets",
+        },
+        config = function()
+            require("plugins.nvim-cmp")
+        end,
+    },
+
+    { "hrsh7th/cmp-buffer" },
+    { "hrsh7th/cmp-path" },
+    { "L3MON4D3/LuaSnip" },
+    { "saadparwaiz1/cmp_luasnip" },
+    { "rafamadriz/friendly-snippets" },
+
+
+    --lsp
+    -- manage + install lsp servers:
+    {
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate", -- update registery contents
+        config = function()
+            require("plugins.lsp.mason")
+        end,
+    },
+
+    {
+        "williamboman/mason-lspconfig.nvim",
+        dependencies = { "williamboman/mason.nvim" },
+    },
+
+    --config lsp servers:
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = { "williamboman/mason-lspconfig.nvim" },
+    }
+
 })
 

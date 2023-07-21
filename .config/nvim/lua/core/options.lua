@@ -29,12 +29,11 @@ opt.backspace = "indent,eol,start"
 --use clipboard when copying and pasting finally
 opt.clipboard:append("unnamedplus")
 
---split windows
+--split windows = always to below and to the right
 opt.splitright = true
 opt.splitbelow = true
 
---dunno what these do but they were in my config before moving to lua
-opt.smartcase = true
+--undo file
 opt.undofile = true
 
 --keep scroll in view

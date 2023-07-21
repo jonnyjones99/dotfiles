@@ -1,4 +1,3 @@
-
 local ok, bufferline = pcall(require, "bufferline")
 
 if not ok then
