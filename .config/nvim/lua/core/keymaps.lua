@@ -10,8 +10,13 @@ keymap.set("n", "<leader>n", "<cmd>lua require('harpoon.ui').nav_next()<cr>")
 keymap.set("n", "<leader>p", "<cmd>lua require('harpoon.ui').nav_prev()<cr>")
 
 
---neotree
-keymap.set("n", "<leader>t", ":NeoTree<CR>")
-
 --fzf
 -- keymap.set("n", "\", ":Files<CR>")
+--
+
+
+-- nvim tree
+vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<cr>", { silent = true })
+
+-- fzf
+vim.keymap.set("n", "\\", ":FzfLua files<cr>", { silent = true })

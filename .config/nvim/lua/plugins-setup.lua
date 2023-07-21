@@ -18,19 +18,68 @@ require("lazy").setup({
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-		  -- load the colorscheme here
-		  vim.cmd([[colorscheme tokyonight]])
+            require("plugins.tokyonight")
+            vim.cmd("colorscheme tokyonight")
 		end,
 	},
 
+    {
+        "nvim-tree/nvim-tree.lua",
+        cmd = "NvimTreeToggle",
+        config = function()
+            require("plugins.nvim-tree")
+        end,
+    },
+
+
+    { 
+        "rcarriga/nvim-notify",
+        config = function()
+            vim.notify = require("notify")
+        end,
+    },
+
+
+    {
+        'akinsho/bufferline.nvim',
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            require("plugins.bufferline")
+        end,
+    },
+
+
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            require("plugins.lualine")
+        end,
+    },
+
+
+    { 
+        "ThePrimeagen/harpoon",
+        dependencies = "nvim-lua/plenary.nvim",
+        config = function()
+            require("plugins.harpoon")
+        end,
+    },
+
+
+    {
+        "ibhagwan/fzf-lua",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+        -- calling `setup` is optional for customization
+            require("fzf-lua").setup({})
+        end
+    },
+
     { "tpope/vim-surround" }, -- Surround ysw)
     { "tpope/vim-commentary" }, -- gcc / gc for comments
-
-    { "nvim-neo-tree/neo-tree.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "nvim-tree/nvim-web-devicons", lazy = true },
-    { "itchyny/lightline.vim" },
-    { "ThePrimeagen/harpoon" },
     { "ap/vim-css-color" },
     { "mattn/emmet-vim" },
     { "jiangmiao/auto-pairs" },
