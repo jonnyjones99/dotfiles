@@ -1,5 +1,8 @@
 local opt = vim.opt
 
+--leader key space
+vim.g.mapleader = " " 
+
 --line numbers
 opt.relativenumber = true
 opt.number = true
@@ -10,6 +13,8 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.smarttab = true
 opt.softtabstop = 4
+opt.autoindent = true
+opt.smartindent = true
 
 --nowrap
 opt.wrap = false
@@ -44,8 +49,6 @@ opt.sidescrolloff = 8
 opt.smartindent = true
 opt.smartcase = true
 
---leader key space
-vim.g.mapleader = " " 
-
 --highlight on yank
 vim.cmd "au TextYankPost * lua vim.highlight.on_yank {on_visual = false}"
+

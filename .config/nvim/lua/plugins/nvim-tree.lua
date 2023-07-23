@@ -49,3 +49,6 @@ nvim_tree.setup({
   },
   modified = { enable = true },
 })
+
+
+-- let g:NERDTreeStatusline = '%#NonText#'

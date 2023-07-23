@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -78,7 +79,7 @@ require("lazy").setup({
         end
     },
 
-    { "tpope/vim-surround" }, -- Surround ysw)
+    { "tpope/vim-surround" }, -- Surround ysw), ysw", ysw], yswt
     { "tpope/vim-commentary" }, -- gcc / gc for comments
     { "nvim-lua/plenary.nvim" },
     { "nvim-tree/nvim-web-devicons", lazy = true },
@@ -89,53 +90,16 @@ require("lazy").setup({
     { "github/copilot.vim" },
     { "lukas-reineke/indent-blankline.nvim" },
 
+
     --autocomplete and lsp config taken from: https://www.youtube.com/watch?v=vdn_pKJUda8&t=2820s
-    
-    --Autocomplete
-    {
-        "hrsh7th/nvim-cmp",
-        requires = {
-            --autocomplete engines
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            
-            --snippets
-            "L3MON4D3/LuaSnip",
-            "saadparwaiz1/cmp_luasnip",
-	    "rafamadriz/friendly-snippets",
-        },
-        config = function()
-            require("plugins.nvim-cmp")
-        end,
-    },
-
-    { "hrsh7th/cmp-buffer" },
-    { "hrsh7th/cmp-path" },
-    { "L3MON4D3/LuaSnip" },
-    { "saadparwaiz1/cmp_luasnip" },
-    { "rafamadriz/friendly-snippets" },
-
-
-    --lsp
-    -- manage + install lsp servers:
-    {
-        "williamboman/mason.nvim",
-        build = ":MasonUpdate", -- update registery contents
-        config = function()
-            require("plugins.lsp.mason")
-        end,
-    },
-
-    {
-        "williamboman/mason-lspconfig.nvim",
-        dependencies = { "williamboman/mason.nvim" },
-    },
-
-    --config lsp servers:
-    {
-        "neovim/nvim-lspconfig",
-        dependencies = { "williamboman/mason-lspconfig.nvim" },
+    -- couldn't get it work and bored of configing my nvim for now, will come back and change to native lsp soon
+    --
+    { 
+        "neoclide/coc.nvim",
+        branch = "release",
     }
+    
+
 
 })
 
