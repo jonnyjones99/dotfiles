@@ -1,4 +1,3 @@
-
 local ok, lualine = pcall(require, "lualine")
 
 if not ok then

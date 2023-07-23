@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 --leader key space
-vim.g.mapleader = " " 
+vim.g.mapleader = " "
 
 --line numbers
 opt.relativenumber = true

@@ -34,7 +34,7 @@ require("lazy").setup({
     },
 
 
-    { 
+    {
         "rcarriga/nvim-notify",
         config = function()
             vim.notify = require("notify")
@@ -60,7 +60,7 @@ require("lazy").setup({
     },
 
 
-    { 
+    {
         "ThePrimeagen/harpoon",
         dependencies = "nvim-lua/plenary.nvim",
         config = function()
@@ -76,8 +76,17 @@ require("lazy").setup({
         config = function()
         -- calling `setup` is optional for customization
             require("fzf-lua").setup({})
-        end
+        end,
     },
+
+
+    {
+	    "lukas-reineke/indent-blankline.nvim",
+	    config = function()
+		require("plugins.indent-blankline")
+	    end,
+    },
+
 
     { "tpope/vim-surround" }, -- Surround ysw), ysw", ysw], yswt
     { "tpope/vim-commentary" }, -- gcc / gc for comments
@@ -88,18 +97,63 @@ require("lazy").setup({
     { "jiangmiao/auto-pairs" },
     { "mbbill/undotree" },
     { "github/copilot.vim" },
-    { "lukas-reineke/indent-blankline.nvim" },
 
+    -- LSP/autocomplete
+    -- https://github.com/VonHeikemen/lsp-zero.nvim
+    -- Run :LspInstall <language> to install language servers
+    {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        dependencies = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},             -- Required
+            {                                      -- Optional
+              'williamboman/mason.nvim',
+              build = function()
+                pcall(vim.api.nvim_command, 'MasonUpdate')
+              end,
+            },
+            {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-    --autocomplete and lsp config taken from: https://www.youtube.com/watch?v=vdn_pKJUda8&t=2820s
-    -- couldn't get it work and bored of configing my nvim for now, will come back and change to native lsp soon
-    --
-    { 
-        "neoclide/coc.nvim",
-        branch = "release",
-    }
-    
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},     -- Required
+            {'hrsh7th/cmp-nvim-lsp'}, -- Required
+            {'L3MON4D3/LuaSnip'},     -- Required
+        },
+        config = function()
+            require("plugins.lsp")
+        end,
+    },
 
+    -- Syntax highlighting
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ":TSUpdate",
+        config = function()
+            require("plugins.treesitter")
+        end,
+    },
+
+    --linting & formatting
+    -- null is being deprecated at some point so need to switch to another plugin
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+        config = function()
+            require("plugins.null-ls")
+        end,
+    },
+
+    -- {
+    --     "jay-babu/mason-null-ls.nvim",
+    --     event = { "BufReadPre", "BufNewFile" },
+    --     dependencies = {
+    --       "williamboman/mason.nvim",
+    --       "jose-elias-alvarez/null-ls.nvim",
+    --     },
+    --     config = function()
+    --       require("plugins.null-ls") -- require your null-ls config here (example below)
+    --     end,
+    -- }
 
 })
-
