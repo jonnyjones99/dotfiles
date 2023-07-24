@@ -14,6 +14,19 @@ git clone https://github.com/jonnyjones99/dotfiles.git
 ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
 ```
 
+3) Nvim - Should auto install but if not
+```
+:Lazy -> 'I'
+```
+
+4) Tmux - install tpm packages
+```
+Ctrl + B -> 'I'
+```
+
+5) Nerd Font [JetBrainsMono](https://www.nerdfonts.com/font-downloads)
+
+
 ### [Stow](https://www.gnu.org/software/stow/)
 Rather than symlinking each file you can use GNU stow to quickly symlink the entire folder structure to .config.
 
