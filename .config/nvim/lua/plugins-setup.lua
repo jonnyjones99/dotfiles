@@ -85,7 +85,7 @@ require("lazy").setup({
 	    config = function()
 		require("plugins.indent-blankline")
 	    end,
-    },
+	    },
 
 
     { "tpope/vim-surround" }, -- Surround ysw), ysw", ysw], yswt
