@@ -21,7 +21,7 @@ ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
 
 4) Tmux - install tpm packages
 ```
-Ctrl + B -> 'I'
+Ctrl + b -> 'I'
 ```
 
 5) Nerd Font [JetBrainsMono](https://www.nerdfonts.com/font-downloads)
