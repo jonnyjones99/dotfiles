@@ -50,5 +50,10 @@ opt.smartindent = true
 opt.smartcase = true
 
 --highlight on yank
-vim.cmd "au TextYankPost * lua vim.highlight.on_yank {on_visual = false}"
+vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
 
+--php
+vim.cmd("autocmd BufNewFile,BufRead *.php set filetype=php")
+
+-- syntax on
+vim.cmd("syntax on")
