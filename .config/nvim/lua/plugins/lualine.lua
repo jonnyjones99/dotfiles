@@ -1,13 +1,13 @@
 local ok, lualine = pcall(require, "lualine")
 
 if not ok then
-  vim.notify("lualine could not be loaded")
-  return
+    vim.notify("lualine could not be loaded")
+    return
 end
 
 
 require('lualine').setup {
-	options = {
+    options = {
         theme = 'tokyonight',
         disabled_filetypes = { 'NvimTree' },
     }
