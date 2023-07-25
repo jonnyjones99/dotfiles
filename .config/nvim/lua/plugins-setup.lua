@@ -1,17 +1,16 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
-
 
 require("lazy").setup({
 	{
@@ -19,141 +18,137 @@ require("lazy").setup({
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-	    require("plugins.tokyonight")
-	    vim.cmd("colorscheme tokyonight")
+			require("plugins.tokyonight")
+			vim.cmd("colorscheme tokyonight")
 		end,
 	},
 
-    {
-        "nvim-tree/nvim-tree.lua",
-        cmd = "NvimTreeToggle",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require("plugins.nvim-tree")
-        end,
-    },
+	{
+		"nvim-tree/nvim-tree.lua",
+		cmd = "NvimTreeToggle",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("plugins.nvim-tree")
+		end,
+	},
 
+	{
+		"rcarriga/nvim-notify",
+		config = function()
+			vim.notify = require("notify")
+		end,
+	},
 
-    {
-        "rcarriga/nvim-notify",
-        config = function()
-            vim.notify = require("notify")
-        end,
-    },
+	{
+		"akinsho/bufferline.nvim",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		config = function()
+			require("plugins.bufferline")
+		end,
+	},
 
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		config = function()
+			require("plugins.lualine")
+		end,
+	},
 
-    {
-        'akinsho/bufferline.nvim',
-        dependencies = 'nvim-tree/nvim-web-devicons',
-        config = function()
-            require("plugins.bufferline")
-        end,
-    },
+	{
+		"ThePrimeagen/harpoon",
+		dependencies = "nvim-lua/plenary.nvim",
+		config = function()
+			require("plugins.harpoon")
+		end,
+	},
 
+	{
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		-- cmd = "FzfLua files",
+		config = function()
+			-- calling `setup` is optional for customization
+			require("fzf-lua").setup({})
+		end,
+	},
 
-    {
-        'nvim-lualine/lualine.nvim',
-        dependencies = 'nvim-tree/nvim-web-devicons',
-        config = function()
-            require("plugins.lualine")
-        end,
-    },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("plugins.indent-blankline")
+		end,
+	},
 
+	{ "tpope/vim-surround" }, -- Surround ysw), ysw", ysw], yswt
+	{ "tpope/vim-commentary" }, -- gcc / gc for comments
+	{ "nvim-lua/plenary.nvim" },
+	{ "nvim-tree/nvim-web-devicons", lazy = true },
+	{ "ap/vim-css-color" },
+	{ "mattn/emmet-vim" },
+	{ "jiangmiao/auto-pairs" },
+	{ "mbbill/undotree" },
+	{ "github/copilot.vim" },
 
-    {
-        "ThePrimeagen/harpoon",
-        dependencies = "nvim-lua/plenary.nvim",
-        config = function()
-            require("plugins.harpoon")
-        end,
-    },
+	--php things
+	{ "stephpy/vim-php-cs-fixer" },
 
+	-- Syntax highlighting
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			require("plugins.treesitter")
+		end,
+	},
 
-    {
-        "ibhagwan/fzf-lua",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        -- cmd = "FzfLua files",
-        config = function()
-        -- calling `setup` is optional for customization
-            require("fzf-lua").setup({})
-        end,
-    },
+	-- LSP/autocomplete
+	-- https://github.com/VonHeikemen/lsp-zero.nvim
+	-- Run :LspInstall <language> to install language servers
+	{
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v2.x",
+		dependencies = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" }, -- Required
+			{ -- Optional
+				"williamboman/mason.nvim",
+				build = function()
+					pcall(vim.api.nvim_command, "MasonUpdate")
+				end,
+			},
+			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
 
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" }, -- Required
+			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
+			{ "L3MON4D3/LuaSnip" }, -- Required
+		},
+		config = function()
+			require("plugins.lsp")
+		end,
+	},
 
-    {
-	    "lukas-reineke/indent-blankline.nvim",
-	    config = function()
-		require("plugins.indent-blankline")
-	    end,
-	    },
+	--linting & formatting
+	-- null is being deprecated at some point so need to switch to another plugin
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		config = function()
+			require("plugins.null-ls")
+		end,
+	},
 
-
-    { "tpope/vim-surround" }, -- Surround ysw), ysw", ysw], yswt
-    { "tpope/vim-commentary" }, -- gcc / gc for comments
-    { "nvim-lua/plenary.nvim" },
-    { "nvim-tree/nvim-web-devicons", lazy = true },
-    { "ap/vim-css-color" },
-    { "mattn/emmet-vim" },
-    { "jiangmiao/auto-pairs" },
-    { "mbbill/undotree" },
-    { "github/copilot.vim" },
-
-    -- LSP/autocomplete
-    -- https://github.com/VonHeikemen/lsp-zero.nvim
-    -- Run :LspInstall <language> to install language servers
-    {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        dependencies = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {                                      -- Optional
-              'williamboman/mason.nvim',
-              build = function()
-                pcall(vim.api.nvim_command, 'MasonUpdate')
-              end,
-            },
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},     -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'L3MON4D3/LuaSnip'},     -- Required
-        },
-        config = function()
-            require("plugins.lsp")
-        end,
-    },
-
-    -- Syntax highlighting
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ":TSUpdate",
-        config = function()
-            require("plugins.treesitter")
-        end,
-    },
-
-    --linting & formatting
-    -- null is being deprecated at some point so need to switch to another plugin
-    {
-        'jose-elias-alvarez/null-ls.nvim',
-        requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-        config = function()
-            require("plugins.null-ls")
-        end,
-    },
-
-    -- {
-    --     "jay-babu/mason-null-ls.nvim",
-    --     event = { "BufReadPre", "BufNewFile" },
-    --     dependencies = {
-    --       "williamboman/mason.nvim",
-    --       "jose-elias-alvarez/null-ls.nvim",
-    --     },
-    --     config = function()
-    --       require("plugins.null-ls") -- require your null-ls config here (example below)
-    --     end,
-    -- }
-
+	--use mason to install linters+formatters
+	{
+		"jay-babu/mason-null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
+		},
+		config = function()
+			require("plugins.mason-null-ls") -- require your null-ls config here (example below)
+		end,
+	},
 })

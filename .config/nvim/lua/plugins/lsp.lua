@@ -1,12 +1,23 @@
-local lsp = require('lsp-zero').preset({})
+local lsp = require("lsp-zero").preset({})
 
 lsp.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp.default_keymaps({buffer = bufnr})
+	-- see :help lsp-zero-keybindings
+	-- to learn the available actions
+	lsp.default_keymaps({ buffer = bufnr })
 end)
 
+--format on save using null-ls
+lsp.format_on_save({
+	format_opts = {
+		async = false,
+		timeout_ms = 10000,
+	},
+	servers = {
+		["null-ls"] = { "javascript", "typescript", "lua", "php", "css", "sass", "html" },
+	},
+})
+
 -- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.setup()
