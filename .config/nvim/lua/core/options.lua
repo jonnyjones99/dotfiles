@@ -49,6 +49,15 @@ opt.sidescrolloff = 8
 opt.smartindent = true
 opt.smartcase = true
 
+--just in case
+opt.encoding = "utf-8"
+
+--better messages if vim-notify doesn't work
+opt.cmdheight = 2
+
+--highlight matching parenthesis
+vim.opt.showmatch = true
+
 --highlight on yank
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
 
@@ -57,3 +66,5 @@ vim.cmd("autocmd BufNewFile,BufRead *.php set filetype=php")
 
 -- syntax on
 vim.cmd("syntax on")
+
+-- vim.highlightNormalFloatguibg = "#aa0000"

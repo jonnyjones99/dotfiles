@@ -11,6 +11,7 @@ local sources = {
 	formatting.prettierd,
 	formatting.stylua,
 	formatting.eslint_d,
+	formatting.phpcbf,
 }
 
 -- use following command in vim to check executables are installed

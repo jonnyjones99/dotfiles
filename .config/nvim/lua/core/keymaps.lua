@@ -24,6 +24,7 @@ keymap.set("n", "<C-h>", ":BufferLineCyclePrev<CR>", { silent = true })
 keymap.set("n", "<C-u>", ":UndotreeToggle<CR>", { silent = true })
 
 -- move lines up and down
-keymap.set({"n", "v"}, "<C-j>", ":m .-1", { silent = true })
-keymap.set({"n", "v"}, "<C-k>", ":m .+1", { silent = true })
+keymap.set({ "n", "v" }, "<C-j>", ":m .-1", { silent = true })
+keymap.set({ "n", "v" }, "<C-k>", ":m .+1", { silent = true })
 
+vim.g.user_emmet_leader_key = " "

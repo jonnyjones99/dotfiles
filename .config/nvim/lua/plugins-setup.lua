@@ -80,18 +80,36 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"tamton-aquib/duck.nvim",
+		config = function()
+			vim.keymap.set("n", "<leader>ll", function()
+				require("duck").hatch()
+			end, {})
+			vim.keymap.set("n", "<leader>lk", function()
+				require("duck").cook()
+			end, {})
+		end,
+	},
+
 	{ "tpope/vim-surround" }, -- Surround ysw), ysw", ysw], yswt
 	{ "tpope/vim-commentary" }, -- gcc / gc for comments
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{ "ap/vim-css-color" },
-	{ "mattn/emmet-vim" },
 	{ "jiangmiao/auto-pairs" },
 	{ "mbbill/undotree" },
 	{ "github/copilot.vim" },
 
 	--php things
 	{ "stephpy/vim-php-cs-fixer" },
+
+	-- {
+	--     "mattn/emmet-vim",
+	--     config = function()
+	--         require("plugins.emmet")
+	--     end,
+	-- },
 
 	-- Syntax highlighting
 	{
