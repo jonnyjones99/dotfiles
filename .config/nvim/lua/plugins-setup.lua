@@ -81,15 +81,15 @@ require("lazy").setup({
 	},
 
 	{
-		"tamton-aquib/duck.nvim",
-		config = function()
-			vim.keymap.set("n", "<leader>ll", function()
-				require("duck").hatch()
-			end, {})
-			vim.keymap.set("n", "<leader>lk", function()
-				require("duck").cook()
-			end, {})
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
 		end,
+		opts = {
+			-- your configuration comes here
+		},
 	},
 
 	{ "tpope/vim-surround" }, -- Surround ysw), ysw", ysw], yswt
@@ -100,16 +100,6 @@ require("lazy").setup({
 	{ "jiangmiao/auto-pairs" },
 	{ "mbbill/undotree" },
 	{ "github/copilot.vim" },
-
-	--php things
-	{ "stephpy/vim-php-cs-fixer" },
-
-	-- {
-	--     "mattn/emmet-vim",
-	--     config = function()
-	--         require("plugins.emmet")
-	--     end,
-	-- },
 
 	-- Syntax highlighting
 	{
@@ -147,6 +137,10 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"rafamadriz/friendly-snippets",
+	},
+
 	--linting & formatting
 	-- null is being deprecated at some point so need to switch to another plugin
 	{
@@ -169,4 +163,11 @@ require("lazy").setup({
 			require("plugins.mason-null-ls") -- require your null-ls config here (example below)
 		end,
 	},
+
+	-- {
+	-- 	"mhartington/formatter.nvim",
+	-- config = function ()
+	-- require("plugins.formatter")
+	-- end,
+	-- },
 })

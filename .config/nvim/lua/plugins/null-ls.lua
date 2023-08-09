@@ -8,10 +8,13 @@ end
 local formatting = null_ls.builtins.formatting
 
 local sources = {
-	formatting.prettierd,
+	-- formatting.prettierd,
 	formatting.stylua,
 	formatting.eslint_d,
-	formatting.phpcbf,
+
+	formatting.prettier.with({
+		filetypes = { "php", "html", "json", "yaml", "markdown", "css", "scss", "sass" },
+	}),
 }
 
 -- use following command in vim to check executables are installed
