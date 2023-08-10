@@ -99,7 +99,17 @@ require("lazy").setup({
 	{ "ap/vim-css-color" },
 	{ "jiangmiao/auto-pairs" },
 	{ "mbbill/undotree" },
-	{ "github/copilot.vim" },
+
+	-- COPILOT HAS STOP WORKING NO IDEA WHY MIGHT BE SOMETHING TO DO WITH MY LSPS
+	-- { "github/copilot.vim" },
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({})
+		end,
+	},
 
 	-- Syntax highlighting
 	{
