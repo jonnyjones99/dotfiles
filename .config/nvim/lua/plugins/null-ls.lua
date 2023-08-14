@@ -11,7 +11,9 @@ local sources = {
 	-- formatting.prettierd,
 	formatting.stylua,
 	formatting.eslint_d,
-
+	formatting.prettierd.with({
+		filetypes = { "tsx", "ts", "jsx", "js", "json", "typescript", "javascript" },
+	}),
 	formatting.prettier.with({
 		filetypes = { "php", "html", "json", "yaml", "markdown", "css", "scss", "sass" },
 	}),

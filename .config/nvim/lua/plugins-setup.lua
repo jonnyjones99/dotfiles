@@ -53,6 +53,7 @@ require("lazy").setup({
 		config = function()
 			require("plugins.lualine")
 		end,
+		event = "VeryLazy",
 	},
 
 	{

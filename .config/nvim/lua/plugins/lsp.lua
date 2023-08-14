@@ -23,8 +23,6 @@ local on_attach = function()
 	vim.keymap.set("n", "<leader>df", "<cmd>Telescope diagnostics<cr>", opts)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 	vim.keymap.set("n", "<C-h>", vim.lsp.buf.signature_help, opts)
-
-	--accept completion with tab
 end
 
 --format on save using null-ls
@@ -34,7 +32,20 @@ lsp.format_on_save({
 		timeout_ms = 10000,
 	},
 	servers = {
-		["null-ls"] = { "javascript", "typescript", "lua", "php", "css", "sass", "html", "intelephense" },
+		["null-ls"] = {
+			"javascript",
+			"typescript",
+			"jsx",
+			"ts",
+			"tsx",
+			"js",
+			"lua",
+			"php",
+			"css",
+			"sass",
+			"html",
+			"intelephense",
+		},
 	},
 })
 
