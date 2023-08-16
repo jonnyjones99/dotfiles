@@ -88,9 +88,6 @@ require("lazy").setup({
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 		end,
-		opts = {
-			-- your configuration comes here
-		},
 	},
 
 	{ "tpope/vim-surround" }, -- Surround ysw), ysw", ysw], yswt
@@ -99,16 +96,36 @@ require("lazy").setup({
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{ "ap/vim-css-color" },
 	{ "jiangmiao/auto-pairs" },
-	{ "mbbill/undotree" },
+	{ "mbbill/undotree" }, -- control u to bring up tree
 
-	-- COPILOT HAS STOP WORKING NO IDEA WHY MIGHT BE SOMETHING TO DO WITH MY LSPS
-	-- { "github/copilot.vim" },
+	{
+		"goolord/alpha-nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		event = "VimEnter",
+		config = function()
+			require("plugins.alpha")
+		end,
+	},
+
+	{
+		"mg979/vim-visual-multi",
+		branch = "master",
+	},
+
+	-- Copilot Stuff
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = function()
-			require("copilot").setup({})
+			require("plugins.copilot")
+		end,
+	},
+
+	{
+		"zbirenbaum/copilot-cmp",
+		config = function()
+			require("copilot_cmp").setup()
 		end,
 	},
 
