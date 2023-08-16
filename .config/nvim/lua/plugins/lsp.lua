@@ -65,3 +65,33 @@ lsp.configure("intelephense", {
 require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.setup()
+
+---------------------
+--auto complete stuff
+---------------------
+local cmp = require("cmp")
+local cmp_action = require("lsp-zero").cmp_action()
+
+require("luasnip.loaders.from_vscode").lazy_load()
+
+cmp.setup({
+	sources = {
+		{ name = "copilot" },
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+	},
+	mapping = {
+		["<CR>"] = cmp.mapping.confirm({
+			-- documentation says this is important.
+			-- I don't know why.
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = false,
+		}),
+	},
+
+	--ensure first item in completion menu is selected
+	preselect = "item",
+	completion = {
+		completeopt = "menu,menuone,noinsert",
+	},
+})
