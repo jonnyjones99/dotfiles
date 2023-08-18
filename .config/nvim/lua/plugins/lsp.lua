@@ -7,7 +7,10 @@ lsp.preset("recommended")
 -- 	lsp.default_keymaps({ buffer = bufnr })
 -- end)
 --
---
+require("mason").setup({
+	ui = { border = "rounded" },
+})
+
 local on_attach = function()
 	local opts = { buffer = 0 }
 	vim.diagnostic.config({
@@ -33,18 +36,28 @@ lsp.format_on_save({
 	},
 	servers = {
 		["null-ls"] = {
-			"javascript",
-			"typescript",
-			"jsx",
-			"ts",
-			"tsx",
-			"js",
 			"lua",
 			"php",
 			"css",
 			"sass",
 			"html",
 			"intelephense",
+			"typescript",
+			"javascript",
+			"typescriptreact",
+			"javascriptreact",
+		},
+
+		["tsserver"] = {
+			"typescript",
+			"javascript",
+			"typescriptreact",
+			"javascriptreact",
+		},
+
+		["prettierd"] = {
+			"php",
+			"html",
 		},
 	},
 })
@@ -79,6 +92,9 @@ cmp.setup({
 		{ name = "copilot" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+		{ name = "friendly-snippets" },
+		{ name = "buffer", keyword_length = 3 },
+		{ name = "path" },
 	},
 	mapping = {
 		["<CR>"] = cmp.mapping.confirm({
@@ -87,6 +103,8 @@ cmp.setup({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = false,
 		}),
+		["<Tab>"] = cmp_action.luasnip_supertab(),
+		["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
 	},
 
 	--ensure first item in completion menu is selected
