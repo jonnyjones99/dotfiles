@@ -1,6 +1,8 @@
 # dotfiles
 My dotfiles config for [vim](https://neovim.io/)/[tmux](https://github.com/tmux/tmux/wiki)/[alacritty](https://github.com/alacritty/alacritty)/[yabai](https://github.com/koekeishiya/yabai)/[skhd](https://github.com/koekeishiya/skhd)
 
+<img width="1512" alt="React:Typescript Project" src="https://github.com/jonnyjones99/dotfiles/assets/72031997/51312d15-99fc-4d01-8041-2e95abfa2f97">
+
 ## Easy Install:
 
 1) Clone into home directory
