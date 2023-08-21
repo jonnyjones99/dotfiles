@@ -56,8 +56,11 @@ lsp.format_on_save({
 		},
 
 		["prettierd"] = {
-			"php",
 			"html",
+		},
+
+		["intelephense"] = {
+			"php",
 		},
 	},
 })
