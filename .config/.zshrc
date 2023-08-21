@@ -77,7 +77,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,6 +116,8 @@ alias config='cd ~/.dotfiles/.config'
 alias wpRoot='cd ../../../../../'
 alias wpTheme='cd app/public/wp-content/themes/'
 alias wpPlugin='cd app/public/wp-content/plugins/'
+alias ls='exa --icons --group-directories-first'
+alias wastatracka='cd ~/Dev\ Environments/WasteTracka/'
 
 # nvim switcher
 
