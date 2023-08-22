@@ -33,6 +33,11 @@ Ctrl + b -> 'I'
 
 5) Nerd Font [JetBrainsMono](https://www.nerdfonts.com/font-downloads)
 
+6) Download PHP stubs for intelphense (optional but useful for PHP work I have to do occasionally)
+```
+composer global require php-stubs/wordpress-globals php-stubs/wordpress-stubs php-stubs/woocommerce-stubs php-stubs/acf-pro-stubs wpsyntex/polylang-stubs php-stubs/genesis-stubs php-stubs/wp-cli-stubs
+```
+
 
 ### [Stow](https://www.gnu.org/software/stow/)
 Rather than symlinking each file you can use GNU stow to quickly symlink the entire folder structure to .config.
