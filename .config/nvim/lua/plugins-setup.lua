@@ -98,6 +98,7 @@ require("lazy").setup({
 	{ "jiangmiao/auto-pairs" },
 	{ "mbbill/undotree" }, -- control u to bring up tree
 
+	--start up menu
 	{
 		"goolord/alpha-nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -107,6 +108,7 @@ require("lazy").setup({
 		end,
 	},
 
+	--multi line editing
 	{
 		"mg979/vim-visual-multi",
 		branch = "master",
@@ -186,6 +188,14 @@ require("lazy").setup({
 		},
 		config = function()
 			require("plugins.mason-null-ls") -- require your null-ls config here (example below)
+		end,
+	},
+
+	--emmet
+	{
+		"mattn/emmet-vim",
+		config = function()
+			require("plugins.emmet")
 		end,
 	},
 

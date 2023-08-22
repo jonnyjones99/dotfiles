@@ -6,6 +6,7 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },
   "copilot-cmp": { "branch": "master", "commit": "d631b3afbf26bb17d6cf2b3cd8f3d79e7d5eeca1" },
   "copilot.lua": { "branch": "master", "commit": "b5e7675ed7138414f98768c1e6758b3c1929188b" },
+  "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "friendly-snippets": { "branch": "main", "commit": "377d45475b49e37460a902d6d569d2093d4037d0" },
   "fzf-lua": { "branch": "main", "commit": "fe649a0d042e68d5810c9da8045560e885a705d7" },
   "harpoon": { "branch": "master", "commit": "21f4c47c6803d64ddb934a5b314dcb1b8e7365dc" },
