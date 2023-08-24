@@ -40,6 +40,7 @@ lsp.format_on_save({
 			"php",
 			"css",
 			"sass",
+			"scss",
 			"html",
 			"intelephense",
 			"typescript",
@@ -57,6 +58,9 @@ lsp.format_on_save({
 
 		["prettierd"] = {
 			"html",
+			"css",
+			"scss",
+			"sass",
 		},
 
 		["intelephense"] = {
@@ -92,7 +96,10 @@ lsp.configure("intelephense", {
 				"polylang",
 			},
 			environment = {
-				includePaths = { "~/.composer/vendor/php-stubs/" },
+				includePaths = {
+					"~/.composer/vendor/php-stubs/",
+					"~/Documents/Common Assets/PluginsStubs/",
+				},
 			},
 			files = {
 				maxSize = 5000000,
@@ -139,8 +146,8 @@ cmp.setup({
 	},
 
 	--ensure first item in completion menu is selected
-	preselect = "item",
-	completion = {
-		completeopt = "menu,menuone,noinsert",
-	},
+	-- preselect = "item",
+	-- completion = {
+	-- 	completeopt = "menu,menuone,noinsert",
+	-- },
 })
