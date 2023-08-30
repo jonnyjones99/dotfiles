@@ -81,6 +81,7 @@ require("lazy").setup({
 		end,
 	},
 
+	--helps figure out what key to press next sometimes
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -88,6 +89,13 @@ require("lazy").setup({
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 		end,
+	},
+
+	--give warnings for using bad keybinds
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+		opts = {},
 	},
 
 	{ "tpope/vim-surround" }, -- Surround ysw), ysw", ysw], yswt
