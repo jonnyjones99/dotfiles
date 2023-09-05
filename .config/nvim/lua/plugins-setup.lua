@@ -91,12 +91,12 @@ require("lazy").setup({
 		end,
 	},
 
-	--give warnings for using bad keybinds
-	{
-		"m4xshen/hardtime.nvim",
-		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-		opts = {},
-	},
+	--	--give warnings for using bad keybinds
+	--	{
+	--		"m4xshen/hardtime.nvim",
+	--		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+	--		opts = {},
+	--	},
 
 	{ "tpope/vim-surround" }, -- Surround ysw), ysw", ysw], yswt
 	{ "tpope/vim-commentary" }, -- gcc / gc for comments
