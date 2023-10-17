@@ -207,6 +207,14 @@ require("lazy").setup({
 		end,
 	},
 
+	--astro support
+	{
+		"wuelnerdotexe/vim-astro",
+		config = function()
+			require("plugins.astro")
+		end,
+	},
+
 	-- {
 	-- 	"mhartington/formatter.nvim",
 	-- config = function ()

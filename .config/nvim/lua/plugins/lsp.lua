@@ -47,6 +47,7 @@ lsp.format_on_save({
 			"javascript",
 			"typescriptreact",
 			"javascriptreact",
+			"astro",
 		},
 
 		["tsserver"] = {
@@ -54,6 +55,7 @@ lsp.format_on_save({
 			"javascript",
 			"typescriptreact",
 			"javascriptreact",
+			"astro",
 		},
 
 		["prettierd"] = {
@@ -61,6 +63,7 @@ lsp.format_on_save({
 			"css",
 			"scss",
 			"sass",
+			"astro",
 		},
 
 		["intelephense"] = {
@@ -107,6 +110,9 @@ lsp.configure("intelephense", {
 		},
 	},
 })
+
+--astro lsp
+require("lspconfig").astro.setup({})
 
 -- (Optional) Configure php language server for neovim
 -- require("lspconfig").intelephense.setup(lsp.nvim_intelephense())

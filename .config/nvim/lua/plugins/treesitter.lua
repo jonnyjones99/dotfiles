@@ -11,7 +11,7 @@ require("nvim-treesitter.configs").setup({
 	sync_installed = true,
 	highlight = {
 		enable = true, -- This is a MUST
-		additional_vim_regex_highlighting = { "php", "tsx", "ts", "js", "jsx" },
+		additional_vim_regex_highlighting = { "php", "tsx", "ts", "js", "jsx", "astro" },
 	},
 	indent = {
 		enable = false, -- Really breaks stuff if true
