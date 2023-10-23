@@ -237,12 +237,13 @@ require("lazy").setup({
 	},
 
 	--emmet
-	{
-		"mattn/emmet-vim",
-		config = function()
-			require("plugins.emmet")
-		end,
-	},
+	--using emmet lsp instead now
+	-- {
+	-- 	"mattn/emmet-vim",
+	-- 	config = function()
+	-- 		require("plugins.emmet")
+	-- 	end,
+	-- },
 
 	--astro support
 	{
