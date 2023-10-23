@@ -103,8 +103,21 @@ require("lazy").setup({
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{ "ap/vim-css-color" },
-	{ "jiangmiao/auto-pairs" },
 	{ "mbbill/undotree" }, -- control u to bring up tree
+
+	--auto pairs + autotags
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {}, -- this is equalent to setup({}) function
+	},
+	-- {
+	-- 	"windwp/nvim-ts-autotag",
+	-- 	-- event = "InsertEnter",
+	-- 	config = function()
+	-- 		require("nvim-ts-autotag").setup()
+	-- 	end,
+	-- },
 
 	--start up menu
 	{
