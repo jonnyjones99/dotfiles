@@ -17,7 +17,7 @@ local on_attach = function()
 		virtual_text = true,
 	})
 
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
@@ -110,6 +110,16 @@ lsp.configure("intelephense", {
 		},
 	},
 })
+
+-- stop 'no information avilable' notification when using Hover
+-- this only works in nightly build :(
+-- leaving it here for now for when it's supported
+-- doing a disgusting dirty hack in vimnotify.lua instead.
+vim.lsp.with(vim.lsp.handlers.hover, {
+	silent = true,
+})
+
+--doing this extermely dirty hack instead
 
 --astro lsp
 require("lspconfig").astro.setup({})
