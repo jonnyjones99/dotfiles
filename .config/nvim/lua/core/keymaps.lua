@@ -32,3 +32,5 @@ keymap.set("n", "<C-u>", ":UndotreeToggle<CR>", { silent = true })
 -- delete all buffers except current one
 -- https://stackoverflow.com/questions/4545275/vim-close-all-buffers-but-this-one
 keymap.set("n", "<leader>-", ":%bd|e#|bd#<cr>", { silent = true })
+
+-- auto complete keymaps in lsp.lua

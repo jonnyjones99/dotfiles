@@ -126,7 +126,6 @@ require("lspconfig").astro.setup({})
 
 -- (Optional) Configure php language server for neovim
 -- require("lspconfig").intelephense.setup(lsp.nvim_intelephense())
---
 
 -- (Optional) Configure lua language server for neovim
 require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
@@ -157,8 +156,11 @@ cmp.setup({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = false,
 		}),
+		["<C-Space>"] = cmp.mapping.complete(),
 		["<Tab>"] = cmp_action.luasnip_supertab(),
 		["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
+		-- ["<C-l>"] = cmp_action.luasnip_jump_forward(),
+		-- ["<C-h>"] = cmp_action.luasnip_jump_backward(),
 	},
 
 	--ensure first item in completion menu is selected
