@@ -132,6 +132,7 @@ require("lazy").setup({
 		end,
 	},
 
+	-- Turn copilot into a lsp completion source
 	{
 		"zbirenbaum/copilot-cmp",
 		config = function()
@@ -176,6 +177,18 @@ require("lazy").setup({
 		end,
 	},
 
+	--lsp saga for extra lsp features
+	{
+		"nvimdev/lspsaga.nvim",
+		dependencies = {
+			{ "nvim-treesitter/nvim-treesitter" }, -- optional
+			{ "nvim-tree/nvim-web-devicons" }, -- optional
+		},
+		config = function()
+			require("plugins.lsp-saga")
+		end,
+	},
+
 	--linting & formatting
 	-- null is being deprecated at some point so need to switch to another plugin
 	{
@@ -214,11 +227,4 @@ require("lazy").setup({
 			require("plugins.astro")
 		end,
 	},
-
-	-- {
-	-- 	"mhartington/formatter.nvim",
-	-- config = function ()
-	-- require("plugins.formatter")
-	-- end,
-	-- },
 })
