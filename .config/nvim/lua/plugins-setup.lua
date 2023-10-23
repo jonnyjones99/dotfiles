@@ -102,13 +102,6 @@ require("lazy").setup({
 		end,
 	},
 
-	--	--give warnings for using bad keybinds
-	--	{
-	--		"m4xshen/hardtime.nvim",
-	--		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-	--		opts = {},
-	--	},
-
 	{ "tpope/vim-surround" }, -- Surround ysw), ysw", ysw], yswt
 	{ "tpope/vim-commentary" }, -- gcc / gc for comments
 	{ "nvim-lua/plenary.nvim" },
@@ -235,15 +228,6 @@ require("lazy").setup({
 			require("plugins.mason-null-ls") -- require your null-ls config here (example below)
 		end,
 	},
-
-	--emmet
-	--using emmet lsp instead now
-	-- {
-	-- 	"mattn/emmet-vim",
-	-- 	config = function()
-	-- 		require("plugins.emmet")
-	-- 	end,
-	-- },
 
 	--astro support
 	{
