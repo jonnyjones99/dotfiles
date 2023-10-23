@@ -17,8 +17,10 @@ keymap.set("n", "<C-t>", ":NvimTreeToggle<cr>", { silent = true })
 keymap.set("n", "\\", ":FzfLua files<cr>", { silent = true })
 
 -- bufferline
-keymap.set("n", "<C-l>", ":BufferLineCycleNext<CR>", { silent = true })
-keymap.set("n", "<C-h>", ":BufferLineCyclePrev<CR>", { silent = true })
+-- keymap.set("n", "<C-l>", ":BufferLineCycleNext<CR>", { silent = true })
+-- keymap.set("n", "<C-h>", ":BufferLineCyclePrev<CR>", { silent = true })
+keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
+keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
 
 -- undotree
 keymap.set("n", "<C-u>", ":UndotreeToggle<CR>", { silent = true })
