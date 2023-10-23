@@ -109,19 +109,30 @@ require("lazy").setup({
 	{ "ap/vim-css-color" },
 	{ "mbbill/undotree" }, -- control u to bring up tree
 
-	--auto pairs + autotags
+	--auto pairs
+	--TODO: move to use the windwp autopair plugin
 	{
-		"windwp/nvim-autopairs",
+		"cohama/lexima.vim",
 		event = "InsertEnter",
-		opts = {}, -- this is equalent to setup({}) function
 	},
-	-- {
-	-- 	"windwp/nvim-ts-autotag",
-	-- 	-- event = "InsertEnter",
-	-- 	config = function()
-	-- 		require("nvim-ts-autotag").setup()
-	-- 	end,
-	-- },
+
+	--auto close + rename html tags
+	--TODO: make this work
+	{
+		"windwp/nvim-ts-autotag",
+		-- event = "InsertEnter",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				autotag = {
+					enable = true,
+					enable_rename = true,
+					enable_close = true,
+					enable_close_on_slash = true,
+					filetypes = { "html", "xml" },
+				},
+			})
+		end,
+	},
 
 	--start up menu
 	{
