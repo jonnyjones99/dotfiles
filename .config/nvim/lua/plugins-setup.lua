@@ -23,6 +23,21 @@ require("lazy").setup({
 		end,
 	},
 
+	--[[
+    --TODO:
+    -- This theme looks better
+    -- https://github.com/JoosepAlviste/dotfiles/tree/master
+    {
+		"JoosepAlviste/palenightfall.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("plugins.tokyonight")
+			vim.cmd("colorscheme tokyonight")
+		end,
+	},
+    ]]
+
 	{
 		"nvim-tree/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
