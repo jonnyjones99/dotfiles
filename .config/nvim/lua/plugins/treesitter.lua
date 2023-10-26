@@ -25,4 +25,15 @@ require("nvim-treesitter.configs").setup({
 			node_decremental = "grm",
 		},
 	},
+	context_commentstring = {
+		enable = true,
+	},
 })
+
+local commentstringOK, ts_context_commentstring = pcall(require, "ts_context_commentstring")
+if not commentstringOK then
+	vim.notify("ts_context_commentstring could not be loaded")
+	return
+end
+
+require("ts_context_commentstring").setup({})

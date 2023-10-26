@@ -35,6 +35,7 @@ require("lazy").setup({
 	{
 		"rcarriga/nvim-notify",
 		config = function()
+			-- annoying hack to get rid of no lsp info message
 			-- See https://github.com/neovim/nvim-lspconfig/issues/1931#issuecomment-1297599534
 			-- An alternative solution: https://github.com/neovim/neovim/issues/20457#issuecomment-1266782345
 			local banned_messages = { "No information available" }
@@ -102,8 +103,16 @@ require("lazy").setup({
 		end,
 	},
 
+	--gcc or gbc to
+	{
+		"numToStr/Comment.nvim",
+		lazy = false,
+		config = function()
+			require("plugins.comment")
+		end,
+	},
+
 	{ "tpope/vim-surround" }, -- Surround ysw), ysw", ysw], yswt
-	{ "tpope/vim-commentary" }, -- gcc / gc for comments
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{ "ap/vim-css-color" },
@@ -172,6 +181,13 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+
+		--make commenting smarter
+		--config in plugins.treesitter
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
+
 		config = function()
 			require("plugins.treesitter")
 		end,
