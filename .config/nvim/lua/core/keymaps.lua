@@ -16,21 +16,36 @@ keymap.set("n", "<C-t>", ":NvimTreeToggle<cr>", { silent = true })
 -- \\ in this case just means \, but you use a \ as an escape char in lua
 keymap.set("n", "\\", ":FzfLua files<cr>", { silent = true })
 
--- bufferline
--- keymap.set("n", "<C-l>", ":BufferLineCycleNext<CR>", { silent = true })
--- keymap.set("n", "<C-h>", ":BufferLineCyclePrev<CR>", { silent = true })
+--bufferline
 keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
 keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
 
 -- undotree
 keymap.set("n", "<C-u>", ":UndotreeToggle<CR>", { silent = true })
 
--- move lines up and down
--- keymap.set({ "n", "v" }, "<C-j>", ":m .-1", { silent = true })
--- keymap.set({ "n", "v" }, "<C-k>", ":m .+1", { silent = true })
+--move line up and down
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- delete all buffers except current one
 -- https://stackoverflow.com/questions/4545275/vim-close-all-buffers-but-this-one
 keymap.set("n", "<leader>-", ":%bd|e#|bd#<cr>", { silent = true })
 
--- auto complete keymaps in lsp.lua
+-- toggle between tabwidth of 2 and 4
+vim.keymap.set("n", "<leader>tw", function()
+	if vim.bo.tabstop == 2 then
+		vim.bo.tabstop = 4
+		vim.bo.shiftwidth = 4
+		vim.bo.softtabstop = 4
+	else
+		vim.bo.tabstop = 2
+		vim.bo.shiftwidth = 2
+		vim.bo.softtabstop = 2
+	end
+end)
+
+--[[
+--
+-- auto complete keymaps can be found in '/lsp.lua'
+--
+--]]

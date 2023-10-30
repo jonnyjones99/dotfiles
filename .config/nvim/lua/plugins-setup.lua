@@ -152,7 +152,7 @@ require("lazy").setup({
 					enable_rename = true,
 					enable_close = true,
 					enable_close_on_slash = true,
-					filetypes = { "html", "xml" },
+					filetypes = { "html", "xml", "tsx", "jsx", "astro", "php" },
 				},
 			})
 		end,
