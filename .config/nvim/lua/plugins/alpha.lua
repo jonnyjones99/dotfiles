@@ -46,12 +46,13 @@ dashboard.section.footer.val = footer()
 dashboard.section.buttons.val = {
 	dashboard.button("e", "  New file", ":ene <BAR> startinsert<CR>"),
 	dashboard.button("\\", "  Find files"),
-	dashboard.button("LDR f t", "󰊄  Find text", "<cmd>Telescope live_grep<CR>"),
-	dashboard.button("LDR f r", "󰔠  Recent files", "<cmd>Telescope oldfiles<CR>"),
-	dashboard.button("LDR f p", "󱠏  Projects", "<cmd>Telescope projects<CR>"),
-	dashboard.button("LDR p c", "  Config", "<cmd>e $MYVIMRC<CR>"),
-	dashboard.button("LDR p l", "  Plugins", "<cmd>Lazy<CR>"),
-	dashboard.button("LDR q", "  Quit", "<cmd>qa<CR>"),
+	dashboard.button("ctrl t", "󱠏  FileTree", "<cmd>NvimTreeOpen<CR>"),
+	-- dashboard.button("LDR f t", "󰊄  Find text", "<cmd>Telescope live_grep<CR>"),
+	-- dashboard.button("LDR f r", "󰔠  Recent files", "<cmd>Telescope oldfiles<CR>"),
+	-- dashboard.button("LDR f p", "󱠏  Projects", "<cmd>Telescope projects<CR>"),
+	-- dashboard.button("LDR p c", "  Config", "<cmd>e $MYVIMRC<CR>"),
+	dashboard.button("-", "  Plugins", "<cmd>Lazy<CR>"),
+	dashboard.button(":q", "  Quit", "<cmd>qa<CR>"),
 }
 
 alpha.setup(dashboard.config)
