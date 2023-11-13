@@ -111,6 +111,25 @@ lsp.configure("intelephense", {
 	},
 })
 
+lsp.configure("emmet_language_server", {
+	on_attach = on_attach,
+	filetypes = {
+		"css",
+		"eruby",
+		"html",
+		"javascript",
+		"javascriptreact",
+		"less",
+		"sass",
+		"scss",
+		"svelte",
+		"pug",
+		"typescriptreact",
+		"vue",
+		"php",
+	},
+})
+
 -- stop 'no information avilable' notification when using Hover
 -- this only works in nightly build :(
 -- leaving it here for now for when it's supported

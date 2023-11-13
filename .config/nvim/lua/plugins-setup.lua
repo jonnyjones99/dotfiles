@@ -271,6 +271,11 @@ require("lazy").setup({
 		end,
 	},
 
+	--emmet
+	-- {
+	-- 	"mattn/emmet-vim",
+	-- },
+
 	--astro support
 	{
 		"wuelnerdotexe/vim-astro",
