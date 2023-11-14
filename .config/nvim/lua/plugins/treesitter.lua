@@ -28,6 +28,25 @@ require("nvim-treesitter.configs").setup({
 	context_commentstring = {
 		enable = true,
 	},
+	textsubjects = {
+		enable = true,
+		keymaps = {
+			["<cr>"] = "textsubjects-smart",
+		},
+	},
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true,
+			keymaps = {
+				["if"] = "@function.inner",
+				["af"] = "@function.outer",
+				["ia"] = "@parameter.inner",
+				["aa"] = "@parameter.outer",
+				["ac"] = "@comment.outer",
+			},
+		},
+	},
 })
 
 local commentstringOK, ts_context_commentstring = pcall(require, "ts_context_commentstring")

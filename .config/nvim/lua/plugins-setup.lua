@@ -196,11 +196,23 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		event = "VeryLazy",
 
 		--make commenting smarter
 		--config in plugins.treesitter
 		dependencies = {
-			"JoosepAlviste/nvim-ts-context-commentstring",
+			{
+				"JoosepAlviste/nvim-ts-context-commentstring",
+				opts = {
+					custom_calculation = function(node, language_tree)
+						if vim.bo.filetype == "blade" and language_tree._lang ~= "javascript" then
+							return "{{-- %s --}}"
+						end
+					end,
+				},
+			},
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"RRethy/nvim-treesitter-textsubjects",
 		},
 
 		config = function()
