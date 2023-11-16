@@ -112,7 +112,7 @@ lsp.configure("intelephense", {
 })
 
 lsp.configure("emmet_language_server", {
-	on_attach = on_attach,
+	-- on_attach = on_attach,
 	filetypes = {
 		"css",
 		"eruby",
