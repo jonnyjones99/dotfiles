@@ -50,18 +50,7 @@ require("lazy").setup({
 	{
 		"rcarriga/nvim-notify",
 		config = function()
-			-- annoying hack to get rid of no lsp info message
-			-- See https://github.com/neovim/nvim-lspconfig/issues/1931#issuecomment-1297599534
-			-- An alternative solution: https://github.com/neovim/neovim/issues/20457#issuecomment-1266782345
-			local banned_messages = { "No information available" }
-			vim.notify = function(msg, ...)
-				for _, banned in ipairs(banned_messages) do
-					if msg == banned then
-						return
-					end
-				end
-				return require("notify")(msg, ...)
-			end
+			require("plugins.notify")
 		end,
 	},
 
@@ -249,16 +238,16 @@ require("lazy").setup({
 	},
 
 	--lsp saga for extra lsp features
-	{
-		"nvimdev/lspsaga.nvim",
-		dependencies = {
-			{ "nvim-treesitter/nvim-treesitter" }, -- optional
-			{ "nvim-tree/nvim-web-devicons" }, -- optional
-		},
-		config = function()
-			require("plugins.lsp-saga")
-		end,
-	},
+	-- {
+	-- 	"nvimdev/lspsaga.nvim",
+	-- 	dependencies = {
+	-- 		{ "nvim-treesitter/nvim-treesitter" }, -- optional
+	-- 		{ "nvim-tree/nvim-web-devicons" }, -- optional
+	-- 	},
+	-- 	config = function()
+	-- 		require("plugins.lsp-saga")
+	-- 	end,
+	-- },
 
 	--linting & formatting
 	-- null is being deprecated at some point so need to switch to another plugin

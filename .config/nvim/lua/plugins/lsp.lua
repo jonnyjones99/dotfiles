@@ -1,12 +1,6 @@
 local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
--- lsp.on_attach(function(client, bufnr)
--- 	-- see :help lsp-zero-keybindings
--- 	-- to learn the available actions
--- 	lsp.default_keymaps({ buffer = bufnr })
--- end)
---
 require("mason").setup({
 	ui = { border = "rounded" },
 })
@@ -112,7 +106,7 @@ lsp.configure("intelephense", {
 })
 
 lsp.configure("emmet_language_server", {
-	-- on_attach = on_attach,
+	on_attach = on_attach,
 	filetypes = {
 		"css",
 		"eruby",
@@ -134,11 +128,15 @@ lsp.configure("emmet_language_server", {
 -- this only works in nightly build :(
 -- leaving it here for now for when it's supported
 -- doing a disgusting dirty hack in vimnotify.lua instead.
-vim.lsp.with(vim.lsp.handlers.hover, {
-	silent = true,
-})
 
---doing this extermely dirty hack instead
+--[[
+
+    vim.lsp.with(vim.lsp.handlers.hover, {
+        silent = true,
+    })
+
+]]
+--
 
 --astro lsp
 require("lspconfig").astro.setup({})
@@ -157,7 +155,8 @@ lsp.setup()
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
 
-require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load() -- friendly snippets
+require("luasnip.loaders.from_snipmate").lazy_load() -- nvim/snippets/{filetype}.snippets
 
 cmp.setup({
 	sources = {
@@ -181,10 +180,7 @@ cmp.setup({
 		-- ["<C-l>"] = cmp_action.luasnip_jump_forward(),
 		-- ["<C-h>"] = cmp_action.luasnip_jump_backward(),
 	},
-
-	--ensure first item in completion menu is selected
-	-- preselect = "item",
-	-- completion = {
-	-- 	completeopt = "menu,menuone,noinsert",
-	-- },
+	experimental = {
+		ghost_text = true,
+	},
 })

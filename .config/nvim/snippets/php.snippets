@@ -1,0 +1,11 @@
+snippet rep "acf repeater"
+		<?php
+		if( have_rows('${1}') ):
+			while( have_rows('${2}') ) : the_row();
+			$${3} = get_sub_field('${4}');
+			?>
+
+			<?php
+			endwhile;
+		endif;
+		?>
