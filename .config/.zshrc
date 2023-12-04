@@ -121,7 +121,6 @@ alias ls='exa --icons --group-directories-first'
 alias wastatracka='cd ~/Dev\ Environments/WasteTracka/'
 
 # nvim switcher
-
 alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
 
 function nvims() {
@@ -166,3 +165,7 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+# https://statamic.dev/troubleshooting/command-not-found-statamic
+export PATH=${PATH}:~/.composer/vendor/bin
