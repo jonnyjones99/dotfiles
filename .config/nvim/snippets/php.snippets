@@ -9,3 +9,13 @@ snippet rep "acf repeater"
 			endwhile;
 		endif;
 		?>
+
+
+snippet gallery "acf gallery"
+		<?php 
+		$images = get_field('${1}');
+		if( $images ): ?>
+			<?php foreach( $images as $image ): ?>
+				 <img src="<?php echo $image['url'] ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+			<?php endforeach; ?>
+		<?php endif; ?>
