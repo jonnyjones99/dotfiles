@@ -304,8 +304,5 @@ require("lazy").setup({
 	--astro support
 	{
 		"wuelnerdotexe/vim-astro",
-		config = function()
-			require("plugins.astro")
-		end,
 	},
 })

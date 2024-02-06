@@ -5,7 +5,7 @@ if not ok then
 	return
 end
 
-require("bufferline").setup({
+bufferline.setup({
 	options = {
 		themeable = "true",
 		show_buffer_close_icons = false,

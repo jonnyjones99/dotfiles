@@ -5,6 +5,4 @@ if not ok then
 	return
 end
 
--- vim.opt.list = true
-
-require("ibl").setup({})
+indent_blankline.setup({})
