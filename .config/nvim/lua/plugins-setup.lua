@@ -80,6 +80,14 @@ require("lazy").setup({
 	},
 
 	{
+		"stevearc/oil.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("plugins.oil")
+		end,
+	},
+
+	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		-- cmd = "FzfLua files",
@@ -155,6 +163,11 @@ require("lazy").setup({
 		config = function()
 			require("plugins.alpha")
 		end,
+	},
+
+	--cat
+	{
+		"tamton-aquib/duck.nvim",
 	},
 
 	--multi line editing
