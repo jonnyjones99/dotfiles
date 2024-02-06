@@ -141,9 +141,6 @@ lsp.configure("emmet_language_server", {
 --astro lsp
 require("lspconfig").astro.setup({})
 
--- (Optional) Configure php language server for neovim
--- require("lspconfig").intelephense.setup(lsp.nvim_intelephense())
-
 -- (Optional) Configure lua language server for neovim
 require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
@@ -158,10 +155,27 @@ local cmp_action = require("lsp-zero").cmp_action()
 require("luasnip.loaders.from_vscode").lazy_load() -- friendly snippets
 require("luasnip.loaders.from_snipmate").lazy_load() -- nvim/snippets/{filetype}.snippets
 
+--remove these if javascript is being fucky
+require("luasnip").filetype_extend("javascriptreact", { "html" })
+require("luasnip").filetype_extend("javascript", { "javascriptreact" })
+require("luasnip").filetype_extend("javascript", { "html" })
+
 cmp.setup({
+	--add a bordert to the autocomplete menu
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
+	--remove this if you want your autocomplete menu also showing when typing
+	--toggle the autocomplete menu with control space
+	--having this turned off allows snippets to work properly
+	--think it's an issue with keybinds fighting with eachother
+	completion = {
+		autocomplete = false,
+	},
 	sources = {
-		{ name = "copilot" },
 		{ name = "nvim_lsp" },
+		{ name = "copilot" },
 		{ name = "luasnip" },
 		{ name = "friendly-snippets" },
 		{ name = "buffer", keyword_length = 3 },
