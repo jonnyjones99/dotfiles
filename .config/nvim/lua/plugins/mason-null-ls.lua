@@ -17,7 +17,7 @@ end
 --	},
 --})
 
-require("mason-null-ls").setup({
+mason_null_ls.setup({
 	ensure_installed = {
 		-- Opt to list sources here, when available in mason.
 	},

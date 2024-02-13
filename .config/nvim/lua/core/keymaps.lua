@@ -46,18 +46,9 @@ end)
 
 --[[
 --
--- auto complete keymaps can be found in '/lsp.lua'
+-- lsp/auto complete keymaps can be found in '/lsp.lua'
 --
 --]]
 
 -- oil
 vim.keymap.set("n", "<leader>t", "<cmd>lua require('oil').toggle_float()<CR>", { desc = "Oil" })
-
--- pet
-vim.keymap.set("n", "<leader>;", function()
-	require("duck").hatch("🐈", 2)
-end, {})
-
-vim.keymap.set("n", "<leader>;;", function()
-	require("duck").cook()
-end, {})

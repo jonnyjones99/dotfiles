@@ -165,11 +165,6 @@ require("lazy").setup({
 		end,
 	},
 
-	--cat
-	{
-		"tamton-aquib/duck.nvim",
-	},
-
 	--multi line editing
 	{
 		"mg979/vim-visual-multi",
