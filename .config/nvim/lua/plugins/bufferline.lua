@@ -8,6 +8,7 @@ end
 bufferline.setup({
 	options = {
 		themeable = "true",
+		highlights = require("catppuccin.groups.integrations.bufferline").get(),
 		show_buffer_close_icons = false,
 		show_close_icon = false,
 		color_icons = true,

@@ -23,7 +23,7 @@ lualine.setup({
 
 	options = {
 		-- theme = "auto",
-		theme = "tokyonight",
+		theme = "catppuccin",
 		globalstatus = true,
 		disabled_filetypes = { statusline = { "dashboard", "alpha", "NvimTree" } },
 		component_separators = "",
