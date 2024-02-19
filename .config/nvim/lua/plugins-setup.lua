@@ -13,13 +13,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false, -- make sure we load this during startup if it is your main colorscheme
+	-- 	priority = 1000, -- make sure to load this before all the other start plugins
+	-- 	config = function()
+	-- 		require("plugins.tokyonight")
+	-- 		vim.cmd("colorscheme tokyonight")
+	-- 	end,
+	-- },
 	{
-		"folke/tokyonight.nvim",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
+		"catppuccin/nvim",
+		name = "catppuccin",
+		lazy = false,
+		priority = 1000,
 		config = function()
-			require("plugins.tokyonight")
-			vim.cmd("colorscheme tokyonight")
+			require("plugins.catppuccin")
 		end,
 	},
 
@@ -57,6 +66,7 @@ require("lazy").setup({
 	{
 		"akinsho/bufferline.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
+		after = "catppuccin",
 		config = function()
 			require("plugins.bufferline")
 		end,
