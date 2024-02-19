@@ -5,7 +5,7 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
-  opacity: 0.96
+  opacity: 0.7
     #remove title bar
   decorations: "buttonless"
 
