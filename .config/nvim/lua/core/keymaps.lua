@@ -3,6 +3,23 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for convenience
 
+--VIM Specific Keybinds
+--better save
+keymap.set("n", "<leader>w", ":w<CR>")
+
+-- easy escape in insert mode
+keymap.set("i", "jj", "<ESC>", { silent = true })
+
+--move line up and down
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- delete all buffers except current one
+-- https://stackoverflow.com/questions/4545275/vim-close-all-buffers-but-this-one
+keymap.set("n", "<leader>-", ":%bd|e#|bd#<cr>", { silent = true })
+
+-------------------------------------------------------------------------------------------------------------------------
+--PLUGIN KEYBINDS:
 -- harpoon
 keymap.set("n", "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<cr>")
 keymap.set("n", "<leader>e", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
@@ -22,14 +39,6 @@ keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
 
 -- undotree
 keymap.set("n", "<C-u>", ":UndotreeToggle<CR>", { silent = true })
-
---move line up and down
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
--- delete all buffers except current one
--- https://stackoverflow.com/questions/4545275/vim-close-all-buffers-but-this-one
-keymap.set("n", "<leader>-", ":%bd|e#|bd#<cr>", { silent = true })
 
 -- toggle between tabwidth of 2 and 4
 vim.keymap.set("n", "<leader>tw", function()
