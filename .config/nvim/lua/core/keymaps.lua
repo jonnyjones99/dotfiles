@@ -18,6 +18,9 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- https://stackoverflow.com/questions/4545275/vim-close-all-buffers-but-this-one
 keymap.set("n", "<leader>-", ":%bd|e#|bd#<cr>", { silent = true })
 
+--restart lsp servers
+keymap.set("n", "<leader><Bs>", ":LspRestart<cr>")
+
 -------------------------------------------------------------------------------------------------------------------------
 --PLUGIN KEYBINDS:
 -- harpoon
