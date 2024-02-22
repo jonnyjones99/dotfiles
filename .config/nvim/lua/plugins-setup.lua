@@ -108,6 +108,15 @@ require("lazy").setup({
 	},
 
 	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		tag = "0.1.5",
+		config = function()
+			require("plugins.telescope")
+		end,
+	},
+
+	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		config = function()
@@ -287,35 +296,6 @@ require("lazy").setup({
 		},
 		config = function()
 			require("plugins.mason-null-ls") -- require your null-ls config here (example below)
-		end,
-	},
-
-	--laravel help
-	{
-		"adalessa/laravel.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-			"tpope/vim-dotenv",
-			"MunifTanjim/nui.nvim",
-		},
-		cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
-		keys = {
-			{ "<leader>la", ":Laravel artisan<cr>" },
-			{ "<leader>lr", ":Laravel routes<cr>" },
-			{ "<leader>lm", ":Laravel related<cr>" },
-			{
-				"<leader>lt",
-				function()
-					require("laravel.tinker").send_to_tinker()
-				end,
-				mode = "v",
-				desc = "Laravel Application Routes",
-			},
-		},
-		event = { "VeryLazy" },
-		config = function()
-			require("laravel").setup()
-			-- require("telescope").load_extension("laravel")
 		end,
 	},
 
