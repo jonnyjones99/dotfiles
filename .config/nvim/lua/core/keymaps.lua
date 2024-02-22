@@ -11,8 +11,8 @@ keymap.set("n", "<leader>w", ":w<CR>")
 keymap.set("i", "jj", "<ESC>", { silent = true })
 
 --move line up and down
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
 -- delete all buffers except current one
 -- https://stackoverflow.com/questions/4545275/vim-close-all-buffers-but-this-one
@@ -63,4 +63,8 @@ end)
 --]]
 
 -- oil
-vim.keymap.set("n", "<leader>t", "<cmd>lua require('oil').toggle_float()<CR>", { desc = "Oil" })
+-- vim.keymap.set("n", "<leader>t", "<cmd>lua require('oil').toggle_float()<CR>", { desc = "Oil" })
+vim.keymap.set("n", "<leader>t", function()
+	vim.cmd("vsplit | wincmd l")
+	require("oil").open()
+end)
