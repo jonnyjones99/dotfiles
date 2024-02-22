@@ -36,6 +36,13 @@ keymap.set("n", "<C-t>", ":NvimTreeToggle<cr>", { silent = true })
 -- \\ in this case just means \, but you use a \ as an escape char in lua
 keymap.set("n", "\\", ":FzfLua files<cr>", { silent = true })
 
+-- Telescope
+local builtin = require("telescope.builtin")
+keymap.set("n", "<leader>ff", builtin.find_files, {})
+keymap.set("n", "<leader>fg", builtin.live_grep, {})
+keymap.set("n", "<leader>fb", builtin.buffers, {})
+keymap.set("n", "<leader>fh", builtin.help_tags, {})
+
 --bufferline
 keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
 keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
