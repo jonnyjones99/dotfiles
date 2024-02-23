@@ -10,7 +10,6 @@ telescope.setup({
 		colorscheme = { enable_preview = true },
 		find_files = {
 			find_command = { "fd", "--type", "f", "--hidden", "--ignore-file", ".gitignore", "--strip-cwd-prefix" },
-			theme = "ivy",
 		},
 		live_grep = {
 			layout_strategy = "vertical",
@@ -18,7 +17,6 @@ telescope.setup({
 		buffers = { ignore_current_buffer = true },
 	},
 	defaults = {
-		-- theme = "ivy",
 		vimgrep_arguments = {
 			"rg",
 			"--no-heading",
