@@ -5,7 +5,7 @@ if not ok then
 	return
 end
 
-require("catppuccin").setup({
+catp.setup({
 	flavour = "mocha", -- latte, frappe, macchiato, mocha
 	background = { -- :h background
 		light = "latte",
@@ -33,6 +33,9 @@ require("catppuccin").setup({
 		},
 		mason = true,
 		notify = true,
+		telescope = {
+			enabled = true,
+		},
 		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 	},
 })
