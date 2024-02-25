@@ -73,15 +73,15 @@ require("lazy").setup({
 		end,
 	},
 
-	{
-		"ibhagwan/fzf-lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		-- cmd = "FzfLua files",
-		config = function()
-			-- calling `setup` is optional for customization
-			require("fzf-lua").setup({})
-		end,
-	},
+	-- {
+	-- 	"ibhagwan/fzf-lua",
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- 	-- cmd = "FzfLua files",
+	-- 	config = function()
+	-- 		-- calling `setup` is optional for customization
+	-- 		require("fzf-lua").setup({})
+	-- 	end,
+	-- },
 
 	{
 		"nvim-telescope/telescope.nvim",
@@ -97,16 +97,6 @@ require("lazy").setup({
 		main = "ibl",
 		config = function()
 			require("plugins.indent-blankline")
-		end,
-	},
-
-	--helps figure out what key to press next sometimes
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
 		end,
 	},
 
