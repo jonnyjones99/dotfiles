@@ -137,6 +137,11 @@ function nvims() {
 
 bindkey -s ^a "nvims\n"
 
+#GO PATH FROM HAYDEN
+export GOPATH=$(asdf where golang)/package
+export GOROOT=$(asdf where golang)/go
+
+export PATH=$PATH:$(go env GOPATH)/bin
 
 
 
