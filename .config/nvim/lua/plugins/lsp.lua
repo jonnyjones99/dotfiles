@@ -63,11 +63,17 @@ lsp.format_on_save({
 		["intelephense"] = {
 			"php",
 		},
+
+		["gopls"] = {
+			"go",
+			"templ",
+		},
 	},
 })
 
 lsp.ensure_installed({
 	"intelephense",
+	"gopls",
 })
 
 lsp.configure("intelephense", {
@@ -124,6 +130,13 @@ lsp.configure("emmet_language_server", {
 	},
 })
 
+lsp.configure("gopls", {
+	on_attach = on_attach,
+	filetypes = {
+		"templ",
+		"go",
+	},
+})
 -- stop 'no information avilable' notification when using Hover
 -- this only works in nightly build :(
 -- leaving it here for now for when it's supported
@@ -198,3 +211,10 @@ cmp.setup({
 		ghost_text = true,
 	},
 })
+
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+-- 	pattern = { "*.templ", "*.go" },
+-- 	callback = function()
+-- 		vim.lsp.buf.format()
+-- 	end,
+-- })
