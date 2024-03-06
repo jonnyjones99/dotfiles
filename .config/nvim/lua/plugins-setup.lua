@@ -193,7 +193,12 @@ require("lazy").setup({
 	},
 
 	-- Better TypeScript Errors
-	{ "dmmulroy/ts-error-translator.nvim" },
+	{
+		"dmmulroy/ts-error-translator.nvim",
+		config = function()
+			require("ts-error-translator").setup()
+		end,
+	},
 
 	--linting & formatting
 	-- null is being deprecated at some point so need to switch to another plugin
