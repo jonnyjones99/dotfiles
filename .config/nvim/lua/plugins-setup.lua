@@ -73,16 +73,6 @@ require("lazy").setup({
 		end,
 	},
 
-	-- {
-	-- 	"ibhagwan/fzf-lua",
-	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	-- 	-- cmd = "FzfLua files",
-	-- 	config = function()
-	-- 		-- calling `setup` is optional for customization
-	-- 		require("fzf-lua").setup({})
-	-- 	end,
-	-- },
-
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -120,24 +110,6 @@ require("lazy").setup({
 	{
 		"cohama/lexima.vim",
 		event = "InsertEnter",
-	},
-
-	--auto close + rename html tags
-	--TODO: make this work
-	{
-		"windwp/nvim-ts-autotag",
-		-- event = "InsertEnter",
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				autotag = {
-					enable = true,
-					enable_rename = true,
-					enable_close = true,
-					enable_close_on_slash = true,
-					filetypes = { "html", "xml", "tsx", "jsx", "astro", "php" },
-				},
-			})
-		end,
 	},
 
 	--start up menu
@@ -178,24 +150,14 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		event = "VeryLazy",
+		-- event = "VeryLazy",
 
-		--make commenting smarter
-		--config in plugins.treesitter
-		dependencies = {
-			{
-				"JoosepAlviste/nvim-ts-context-commentstring",
-				opts = {
-					custom_calculation = function(node, language_tree)
-						if vim.bo.filetype == "blade" and language_tree._lang ~= "javascript" then
-							return "{{-- %s --}}"
-						end
-					end,
-				},
-			},
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			"RRethy/nvim-treesitter-textsubjects",
-		},
+		-- dependencies = {
+		-- 	"JoosepAlviste/nvim-ts-context-commentstring",
+		-- 	"nvim-treesitter/nvim-treesitter-textobjects",
+		-- 	"RRethy/nvim-treesitter-textsubjects",
+		-- 	"windwp/nvim-ts-autotag",
+		-- },
 
 		config = function()
 			require("plugins.treesitter")
@@ -230,17 +192,8 @@ require("lazy").setup({
 		end,
 	},
 
-	--lsp saga for extra lsp features
-	-- {
-	-- 	"nvimdev/lspsaga.nvim",
-	-- 	dependencies = {
-	-- 		{ "nvim-treesitter/nvim-treesitter" }, -- optional
-	-- 		{ "nvim-tree/nvim-web-devicons" }, -- optional
-	-- 	},
-	-- 	config = function()
-	-- 		require("plugins.lsp-saga")
-	-- 	end,
-	-- },
+	-- Better TypeScript Errors
+	{ "dmmulroy/ts-error-translator.nvim" },
 
 	--linting & formatting
 	-- null is being deprecated at some point so need to switch to another plugin
@@ -266,23 +219,7 @@ require("lazy").setup({
 	},
 
 	--astro support
-	{
-		"wuelnerdotexe/vim-astro",
-	},
-
-	--TESTING using Flash
-	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		---@type Flash.Config
-		opts = {},
-      -- stylua: ignore
-          keys = {
-            { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-            { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-            { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-            { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-            { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-          },
-	},
+	-- {
+	-- 	"wuelnerdotexe/vim-astro",
+	-- },
 })

@@ -66,6 +66,9 @@ lsp.format_on_save({
 
 		["gopls"] = {
 			"go",
+		},
+
+		["templ"] = {
 			"templ",
 		},
 	},
@@ -111,6 +114,23 @@ lsp.configure("intelephense", {
 	},
 })
 
+lsp.configure("gopls", {
+	on_attach = on_attach,
+	cmd = { "gopls" },
+	filetypes = { "go", "gomod" },
+	--TAKE THIS FOR PHP USEFUL IN WORDPRESS PROJECTS
+	-- root_dir = util.root_pattern("go.mod", ".git", "go.work"),
+	settings = {
+		gopls = {
+			completeUnimported = true,
+			usePlaceholders = true,
+			analyses = {
+				unusedparams = true,
+			},
+		},
+	},
+})
+
 lsp.configure("emmet_language_server", {
 	on_attach = on_attach,
 	filetypes = {
@@ -130,29 +150,8 @@ lsp.configure("emmet_language_server", {
 	},
 })
 
-lsp.configure("gopls", {
-	on_attach = on_attach,
-	filetypes = {
-		"templ",
-		"go",
-	},
-})
--- stop 'no information avilable' notification when using Hover
--- this only works in nightly build :(
--- leaving it here for now for when it's supported
--- doing a disgusting dirty hack in vimnotify.lua instead.
-
---[[
-
-    vim.lsp.with(vim.lsp.handlers.hover, {
-        silent = true,
-    })
-
-]]
---
-
 --astro lsp
-require("lspconfig").astro.setup({})
+-- require("lspconfig").astro.setup({})
 
 -- (Optional) Configure lua language server for neovim
 require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
@@ -183,9 +182,9 @@ cmp.setup({
 	--toggle the autocomplete menu with control space
 	--having this turned off allows snippets to work properly
 	--think it's an issue with keybinds fighting with eachother
-	completion = {
-		autocomplete = false,
-	},
+	-- completion = {
+	-- 	autocomplete = false,
+	-- },
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "copilot" },
@@ -204,17 +203,8 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<Tab>"] = cmp_action.luasnip_supertab(),
 		["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
-		-- ["<C-l>"] = cmp_action.luasnip_jump_forward(),
-		-- ["<C-h>"] = cmp_action.luasnip_jump_backward(),
 	},
 	experimental = {
 		ghost_text = true,
 	},
 })
-
--- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
--- 	pattern = { "*.templ", "*.go" },
--- 	callback = function()
--- 		vim.lsp.buf.format()
--- 	end,
--- })

@@ -62,9 +62,8 @@ vim.opt.showmatch = true
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
 
 --php
-vim.cmd("autocmd BufNewFile,BufRead *.php set filetype=php")
+vim.cmd("autocmd bufnewfile,bufread *.php set filetype=php")
 
--- syntax on
-vim.cmd("syntax on")
-
--- vim.highlightNormalFloatguibg = "#aa0000"
+--templ go
+vim.filetype.add({ extensions = { templ = "templ" } })
+vim.cmd("autocmd bufnewfile,bufread *.templ set filetype=templ")

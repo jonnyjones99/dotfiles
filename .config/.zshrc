@@ -79,6 +79,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 
 # plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
+plugins=(asdf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,7 +119,8 @@ alias wpRoot='cd ../../../../../'
 alias wpTheme='cd app/public/wp-content/themes/'
 alias wpPlugin='cd app/public/wp-content/plugins/'
 alias ls='exa --icons --group-directories-first'
-alias wastatracka='cd ~/Dev\ Environments/WasteTracka/'
+alias wastatracka='cd ~/dev\ environments/wastetracka/'
+alias nivm='nvim'
 
 # nvim switcher
 alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
@@ -137,14 +139,17 @@ function nvims() {
 
 bindkey -s ^a "nvims\n"
 
+
 #GO PATH FROM HAYDEN
-export GOPATH=$(asdf where golang)/package
+export GOPATH=$(asdf where golang)/packages
 export GOROOT=$(asdf where golang)/go
 
 export PATH=$PATH:$(go env GOPATH)/bin
 
+echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
 
 
+# Node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -157,6 +162,7 @@ case ":$PATH:" in
 esac
 # pnpm endsource /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -174,3 +180,53 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # https://statamic.dev/troubleshooting/command-not-found-statamic
 export PATH=${PATH}:~/.composer/vendor/bin
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh

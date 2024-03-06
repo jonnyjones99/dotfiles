@@ -11,7 +11,18 @@ require("nvim-treesitter.configs").setup({
 	sync_installed = true,
 	highlight = {
 		enable = true, -- This is a MUST
-		additional_vim_regex_highlighting = { "php", "tsx", "ts", "js", "jsx", "astro" },
+		additional_vim_regex_highlighting = {
+			"php",
+			"tsx",
+			"ts",
+			"js",
+			"jsx",
+			"astro",
+			"tmpl",
+			"templ",
+			"go",
+			"golang",
+		},
 	},
 	indent = {
 		enable = false, -- Really breaks stuff if true
@@ -34,6 +45,13 @@ require("nvim-treesitter.configs").setup({
 			["<cr>"] = "textsubjects-smart",
 		},
 	},
+	autotag = {
+		enable = true,
+		enable_rename = true,
+		enable_close = true,
+		enable_close_on_slash = true,
+		filetypes = { "html", "xml", "tsx", "jsx", "astro", "php", "typescriptreact", "typescript", "javascriptreact" },
+	},
 	textobjects = {
 		select = {
 			enable = true,
@@ -48,11 +66,5 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 })
-
-local commentstringOK, ts_context_commentstring = pcall(require, "ts_context_commentstring")
-if not commentstringOK then
-	vim.notify("ts_context_commentstring could not be loaded")
-	return
-end
 
 require("ts_context_commentstring").setup({})
