@@ -56,7 +56,7 @@ opt.encoding = "utf-8"
 opt.cmdheight = 2
 
 --highlight matching parenthesis
-vim.opt.showmatch = true
+opt.showmatch = true
 
 --highlight on yank
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
@@ -67,3 +67,6 @@ vim.cmd("autocmd bufnewfile,bufread *.php set filetype=php")
 --templ go
 vim.filetype.add({ extensions = { templ = "templ" } })
 vim.cmd("autocmd bufnewfile,bufread *.templ set filetype=templ")
+
+-- for some reason i need this to enable treesitter highlighting
+vim.cmd("autocmd BufEnter * TSEnable highlight")

@@ -223,8 +223,8 @@ require("lazy").setup({
 		end,
 	},
 
-	--astro support
-	-- {
-	-- 	"wuelnerdotexe/vim-astro",
-	-- },
+	-- astro support
+	{
+		"wuelnerdotexe/vim-astro",
+	},
 })

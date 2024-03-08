@@ -23,7 +23,7 @@ catp.setup({
 		cmp = true,
 		gitsigns = true,
 		nvimtree = true,
-		-- treesitter = true,
+		treesitter = true,
 		-- treesitter_context = true,
 		bufferline = true,
 		indent_blankline = {
