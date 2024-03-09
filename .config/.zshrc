@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export EDITOR=nvim
+export VISUAL=nvim
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -180,6 +183,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # https://statamic.dev/troubleshooting/command-not-found-statamic
 export PATH=${PATH}:~/.composer/vendor/bin
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
