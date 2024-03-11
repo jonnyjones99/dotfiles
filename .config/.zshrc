@@ -166,36 +166,25 @@ esac
 # pnpm endsource /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-
-# bun completions
-[ -s "/Users/jonny/.bun/_bun" ] && source "/Users/jonny/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Allow history to be recorded in tmux sessions
 # https://askubuntu.com/questions/339546/how-do-i-see-the-history-of-the-commands-i-have-run-in-tmux
 # avoid duplicates
-export HISTCONTROL=ignoredups:erasedups
+# export HISTCONTROL=ignoredups:erasedups
 # After each command, save and reload history
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
+# export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # fzf options
-export FZF_DEFAULT_OPTS='--layout=reverse --height 40%'
-export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="rg --hidden --sort-files --files --null 2> /dev/null | xargs -0 dirname | uniq"
-
+# export FZF_DEFAULT_OPTS='--layout=reverse --height 40%'
+# export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_ALT_C_COMMAND="rg --hidden --sort-files --files --null 2> /dev/null | xargs -0 dirname | uniq"
 
 # https://statamic.dev/troubleshooting/command-not-found-statamic
 export PATH=${PATH}:~/.composer/vendor/bin
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+neofetch

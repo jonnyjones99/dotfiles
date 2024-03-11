@@ -1,50 +1,22 @@
 window:
-  padding:
-    x: 10
-    y: 10
-  class:
-    instance: Alacritty
-    general: Alacritty
-  opacity: 0.9
-    #remove title bar
-  decorations: "buttonless"
+    padding:
+        x: 10
+        y: 10
+    class:
+        instance: Alacritty
+        general: Alacritty
+    opacity: 0.9
+# remove title bar
+    decorations: "buttonless"
 
 scrolling:
-  history: 100000
-  multiplier: 10
+    history: 100000
+    multiplier: 10
 
 draw_bold_text_with_bright_colors: true
 
 selection:
-  save_to_clipboard: false
-
-colors:
-  # Default colors
-  primary:
-    background: '#272822'
-    foreground: '#F8F8F2'
-
-  # Normal colors
-  normal:
-   black:   '#272822'
-   red:     '#F92672'
-   green:   '#A6E22E'
-   yellow:  '#F4BF75'
-   blue:    '#66D9EF'
-   magenta: '#AE81FF'
-   cyan:    '#A1EFE4'
-   white:   '#F8F8F2'
-
-  # Bright colors
-  bright:
-   black:   '#75715E'
-   red:     '#F92672'
-   green:   '#A6E22E'
-   yellow:  '#F4BF75'
-   blue:    '#66D9EF'
-   magenta: '#AE81FF'
-   cyan:    '#A1EFE4'
-   white:   '#F9F8F5'
+    save_to_clipboard: false
 
 live_config_reload: true
 
@@ -128,10 +100,9 @@ colors:
         - { index: 17, color: "#F5E0DC" }
 
 import:
-  - ~/.dotfiles/.config/alacritty/themes/catppuccin-mocha.yml
+    - ~/.dotfiles/.config/alacritty/themes/catppuccin-mocha.yml
 
 font:
-  normal:
     family: "JetBrainsMono Nerd Font"
 
 key_bindings:
@@ -194,10 +165,12 @@ key_bindings:
   #- { key: C,        mods: Control|Shift, mode: Vi, action: ClearSelection   }
   #- { key: Insert,   mods: Shift,                   action: PasteSelection   }
   #- { key: Key0,     mods: Control,                 action: ResetFontSize    }
+
   - { key: Equals,   mods: Control,                 action: IncreaseFontSize }
   - { key: Minus,    mods: Control,                 action: DecreaseFontSize }
 
   #Better Keybinds
+
   - { key: Left,     mods: Alt,     chars: "\x1bb"                       } # Skip word left
   - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # Skip word right
   - { key: Left,     mods: Command, chars: "\x1bOH",   mode: AppCursor   } # Home
