@@ -69,4 +69,4 @@ vim.filetype.add({ extensions = { templ = "templ" } })
 vim.cmd("autocmd bufnewfile,bufread *.templ set filetype=templ")
 
 -- for some reason i need this to enable treesitter highlighting
-vim.cmd("autocmd BufEnter * TSEnable highlight")
+-- vim.cmd("autocmd BufEnter * TSEnable highlight")
