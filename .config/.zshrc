@@ -1,13 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-export EDITOR=nvim
-export VISUAL=nvim
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -121,7 +111,7 @@ alias config='cd ~/.dotfiles/.config'
 alias wpRoot='cd ../../../../../'
 alias wpTheme='cd app/public/wp-content/themes/'
 alias wpPlugin='cd app/public/wp-content/plugins/'
-alias ls='exa --icons --group-directories-first'
+alias ls='eza --icons --group-directories-first'
 alias wastatracka='cd ~/dev\ environments/wastetracka/'
 alias nivm='nvim'
 
@@ -163,28 +153,20 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm endsource /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Allow history to be recorded in tmux sessions
 # https://askubuntu.com/questions/339546/how-do-i-see-the-history-of-the-commands-i-have-run-in-tmux
 # avoid duplicates
-# export HISTCONTROL=ignoredups:erasedups
+export HISTCONTROL=ignoredups:erasedups
 # After each command, save and reload history
-# export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # fzf options
-# export FZF_DEFAULT_OPTS='--layout=reverse --height 40%'
-# export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_ALT_C_COMMAND="rg --hidden --sort-files --files --null 2> /dev/null | xargs -0 dirname | uniq"
+export FZF_DEFAULT_OPTS='--layout=reverse --height 40%'
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="rg --hidden --sort-files --files --null 2> /dev/null | xargs -0 dirname | uniq"
 
 # https://statamic.dev/troubleshooting/command-not-found-statamic
 export PATH=${PATH}:~/.composer/vendor/bin
-
 neofetch
