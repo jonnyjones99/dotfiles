@@ -35,7 +35,10 @@ yabai -m rule --add app="^Digital Colour Meter" manage=off
 yabai -m rule --add app="^Preview" manage=off	
 # yabai -m rule --add app="^Google Chrome$" title="^devtools" manage=off
 # yabai -m rule --add app="Chrome" title="^DevTools$" manage=off
-# yabai -m rule --add app="Simulator" manage=off
+
+# For some reason this rule needs to be here for simulator to be managed by yabai.
+# Makes no sense to me, started happening after I updated yabai
+yabai -m rule --add app="Simulator" manage=on
 
 #float/unfloat current window
 #ref rockyzhand24 answer: https://github.com/koekeishiya/yabai/issues/681
