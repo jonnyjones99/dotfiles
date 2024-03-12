@@ -68,3 +68,9 @@ alias wpRoot='cd ../../../../../'
 alias wpTheme='cd app/public/wp-content/themes/'
 alias wpPlugin='cd app/public/wp-content/plugins/'
 ```
+
+### Troubleshooting
+- `yabai: could not acquire lock-file! abort..`
+-- `rm -rf /tmp/yabai*`
+- Treesitter not highlighting
+-- `TSEnable highlight`
