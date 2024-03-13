@@ -8,61 +8,36 @@ end
 local icons = require("util.icons")
 
 lualine.setup({
-	-- options = {
-	-- 	theme = "tokyonight",
-	-- 	disabled_filetypes = { "NvimTree" },
-	-- },
-
 	options = {
 		theme = "catppuccin",
 		globalstatus = true,
 		disabled_filetypes = { statusline = { "dashboard", "alpha", "NvimTree" } },
 		component_separators = "",
-		-- section_separators = { left = "", right = "" },
 	},
 	sections = {
-		lualine_a = {
-			{
-				"mode",
-				-- separator = { left = "", right = "" },
-				right_padding = 2,
-			},
-		},
-		lualine_b = {
-			{ "branch" },
-			{
-				"diff",
-				symbols = {
-					added = icons.git.added,
-					modified = icons.git.modified,
-					removed = icons.git.removed,
-				},
-			},
-		},
+		lualine_a = { { "mode", right_padding = 2 } },
+		lualine_b = { "branch" },
 		lualine_c = {
-			{
-				"diagnostics",
-				symbols = {
-					error = icons.diagnostics.Error,
-					warn = icons.diagnostics.Warn,
-					info = icons.diagnostics.Info,
-					hint = icons.diagnostics.Hint,
-				},
-			},
+			"%=", --[[ add your center compoentnts here in place of this comment ]]
 		},
-		lualine_y = {},
+		lualine_x = { {
+			"filename",
+			path = 1,
+			padding = { left = 1, right = 1 },
+		} },
+		lualine_y = { "filetype" },
 		lualine_z = {
-			{
-				"filename",
-				path = 1,
-				padding = { left = 1, right = 1 },
-			},
-			{
-				"filetype",
-				icon_only = true,
-				padding = { left = 1, right = 1 },
-				color = { bg = "white" },
-			},
+			{ "location", left_padding = 2 },
 		},
 	},
+	inactive_sections = {
+		lualine_a = { "filename" },
+		lualine_b = {},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = { "location" },
+	},
+	tabline = {},
+	extensions = {},
 })
