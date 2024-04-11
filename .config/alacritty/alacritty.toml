@@ -1,6 +1,9 @@
 import = ["/Users/jonny/.dotfiles/.config/alacritty/themes/catppuccin-mocha.toml"]
 live_config_reload = true
 
+[env]
+TERM = "xterm-256color"
+
 [colors]
 draw_bold_text_with_bright_colors = true
 
@@ -79,9 +82,6 @@ text = "#1E1E2E"
 [colors.vi_mode_cursor]
 cursor = "#B4BEFE"
 text = "#1E1E2E"
-
-[env]
-TERM = "screen-256color"
 
 [font]
 size = 12
