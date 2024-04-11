@@ -76,7 +76,7 @@ lsp.format_on_save({
 
 lsp.ensure_installed({
 	"intelephense",
-	"gopls",
+	-- "gopls",
 })
 
 lsp.configure("intelephense", {
