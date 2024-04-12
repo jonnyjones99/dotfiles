@@ -26,13 +26,14 @@ yabai -m config mouse_action2 resize
 #whenever a window is dragged to the center of another window it will swap them
 yabai -m mouse_drop_action swap
 
-
 #list of apps to ignore
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
-yabai -m rule --add app="^Digital Colour Meter" manage=off
-yabai -m rule --add app="^Preview" manage=off	
+yabai -m rule --add app="^Digital Colour Meter$" manage=off
+yabai -m rule --add app="^Preview$" manage=off	
+yabai -m rule --add app="^LICEcap$" manage=off	
+yabai -m rule --add app="^licecap$" manage=off	
 # yabai -m rule --add app="^Google Chrome$" title="^devtools" manage=off
 # yabai -m rule --add app="Chrome" title="^DevTools$" manage=off
 
