@@ -5,6 +5,7 @@ local opts = require("util.customkey").opts
 harpoon:setup({
 	settings = {
 		save_on_toggle = true, -- Save state on window toggle
+		mark_branch = true, --set harpoon marks per branch
 	},
 })
 
