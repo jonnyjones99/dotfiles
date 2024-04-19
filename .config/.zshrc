@@ -94,13 +94,18 @@ source $ZSH/oh-my-zsh.sh
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
+################
 # fzf options
+################
+
+# TODO: background should be transparent 
 export FZF_DEFAULT_OPTS=" \
---layout=reverse --height 40%
---color=bg+:#{{palette.surface0.hex}},bg:#{{palette.base.hex}},spinner:#{{palette.rosewater.hex}},hl:#{{palette.red.hex}} \
---color=fg:#{{palette.text.hex}},header:#{{palette.red.hex}},info:#{{palette.mauve.hex}},pointer:#{{palette.rosewater.hex}} \
---color=marker:#{{palette.rosewater.hex}},fg+:#{{palette.text.hex}},prompt:#{{palette.mauve.hex}},hl+:#{{palette.red.hex}}"
-```
+--height 40% --layout=reverse --border \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+"
+
 source ~/fzf-git.sh/fzf-git.sh
 
 _fzf_git_fzf() {
