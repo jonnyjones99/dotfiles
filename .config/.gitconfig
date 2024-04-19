@@ -1,0 +1,25 @@
+[user]
+    name = "Jonny Jones"
+
+[core]
+    editor = nvim
+
+[init]
+    defaultBranch = main
+
+; Delta is a syntax-highlighter for git-diffs config below:
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
