@@ -10,6 +10,7 @@
 ; Delta is a syntax-highlighter for git-diffs config below:
 [core]
     pager = delta
+	excludesfile = /Users/jonathanjones/.gitignore_global
 
 [interactive]
     diffFilter = delta --color-only
