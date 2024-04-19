@@ -45,11 +45,13 @@ Rather than symlinking each file you can use GNU stow to quickly symlink the ent
 
 ## Other Things I use in my setup
 - OhMyZsh
-- LazyGit (https://github.com/jesseduffield/lazygit)         <-- Must have for Git workflow 
-- Powerlevel10k (https://github.com/romkatv/powerlevel10k)   <-- Pretty looking terminal
-- btop (https://github.com/aristocratos/btop)                <-- Resource monitoring
-- Neofetch (https://github.com/dylanaraps/neofetch)          <-- :sunglasses:
-- Exa (https://github.com/ogham/exa)                         <-- Better LS command
+- LazyGit (https://github.com/jesseduffield/lazygit)                <-- Must have for Git workflow 
+- Powerlevel10k (https://github.com/romkatv/powerlevel10k)          <-- Pretty looking terminal
+- btop (https://github.com/aristocratos/btop)                       <-- Resource monitoring
+- Neofetch (https://github.com/dylanaraps/neofetch)                 <-- :sunglasses:
+- Exa (https://github.com/ogham/exa)                                <-- Better LS command
+- BAT (https://github.com/sharkdp/bat)                              <-- Better CAT command
+- GitDelta (https://dandavison.github.io/delta/installation.html)   <-- Nice git
 
 
 ### Alias' I use
