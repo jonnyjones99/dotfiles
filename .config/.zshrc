@@ -95,7 +95,12 @@ source $ZSH/oh-my-zsh.sh
 eval "$(fzf --zsh)"
 
 # fzf options
-export FZF_DEFAULT_OPTS='--layout=reverse --height 40%'
+export FZF_DEFAULT_OPTS=" \
+--layout=reverse --height 40%
+--color=bg+:#{{palette.surface0.hex}},bg:#{{palette.base.hex}},spinner:#{{palette.rosewater.hex}},hl:#{{palette.red.hex}} \
+--color=fg:#{{palette.text.hex}},header:#{{palette.red.hex}},info:#{{palette.mauve.hex}},pointer:#{{palette.rosewater.hex}} \
+--color=marker:#{{palette.rosewater.hex}},fg+:#{{palette.text.hex}},prompt:#{{palette.mauve.hex}},hl+:#{{palette.red.hex}}"
+```
 source ~/fzf-git.sh/fzf-git.sh
 
 _fzf_git_fzf() {
@@ -106,6 +111,7 @@ _fzf_git_fzf() {
     --preview-window='right,50%,border-left' \
     --bind='ctrl-/:change-preview-window(down,50%,border-top|hidden|)' "$@"
 }
+
 
 #Zoxide
 eval "$(zoxide init zsh)"
