@@ -10,9 +10,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-# TERM=xterm-256color
-# TERM=alacritty
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -73,9 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-
-# plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
-plugins=(asdf)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,6 +91,25 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
+
+# fzf options
+export FZF_DEFAULT_OPTS='--layout=reverse --height 40%'
+source ~/fzf-git.sh/fzf-git.sh
+
+_fzf_git_fzf() {
+  fzf-tmux -p80%,60% -- \
+    --layout=reverse --multi --height=50% --min-height=20 --border \
+    --border-label-pos=2 \
+    --color='header:italic:underline,label:blue' \
+    --preview-window='right,50%,border-left' \
+    --bind='ctrl-/:change-preview-window(down,50%,border-top|hidden|)' "$@"
+}
+
+#Zoxide
+eval "$(zoxide init zsh)"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -104,68 +118,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-#
-alias sites='cd ~/Local\ Sites/'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias config='cd ~/.dotfiles/.config'
-alias wpRoot='cd ../../../../../'
-alias wpTheme='cd app/public/wp-content/themes/'
-alias wpPlugin='cd app/public/wp-content/plugins/'
 alias ls='eza --icons --group-directories-first'
-alias wastatracka='cd ~/dev\ environments/wastetracka/'
+alias config='cd ~/dotfiles/.config/'
 alias nivm='nvim'
+alias nimv='nvim'
 
-# nvim switcher
-alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
-
-function nvims() {
-  items=("default" "AstroNvim")
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
-  if [[ -z $config ]]; then
-    echo "Nothing selected"
-    return 0
-  elif [[ $config == "default" ]]; then
-    config=""
-  fi
-  NVIM_APPNAME=$config nvim $@
-}
-
-bindkey -s ^a "nvims\n"
-
-#GO PATH FROM HAYDEN
-export GOPATH=$(asdf where golang)/packages
-export GOROOT=$(asdf where golang)/go
-
-export PATH=$PATH:$(go env GOPATH)/bin
-
-# Node version manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# pnpm
-export PNPM_HOME="/Users/jonny/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-# Allow history to be recorded in tmux sessions
-# https://askubuntu.com/questions/339546/how-do-i-see-the-history-of-the-commands-i-have-run-in-tmux
-# avoid duplicates
-export HISTCONTROL=ignoredups:erasedups
-# After each command, save and reload history
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
-# fzf options
-export FZF_DEFAULT_OPTS='--layout=reverse --height 40%'
-export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="rg --hidden --sort-files --files --null 2> /dev/null | xargs -0 dirname | uniq"
-
-# https://statamic.dev/troubleshooting/command-not-found-statamic
-export PATH=${PATH}:~/.composer/vendor/bin
+#Startup commands
 neofetch
