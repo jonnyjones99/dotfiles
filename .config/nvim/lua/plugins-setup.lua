@@ -79,7 +79,13 @@ require("lazy").setup({
 
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{
+				"nvim-telescope/telescope-live-grep-args.nvim",
+				version = "^1.0.0",
+			},
+		},
 		tag = "0.1.5",
 		config = function()
 			require("plugins.telescope")

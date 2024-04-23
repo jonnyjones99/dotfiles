@@ -1,8 +1,10 @@
--- local ok, telescope = pcall(require, "telescope")
+local ok, telescope = pcall(require, "telescope")
 
--- if not ok then
--- 	vim.notify("telescope couldn't be loaded")
--- 	return
--- end
+if not ok then
+	vim.notify("telescope couldn't be loaded")
+	return
+end
 
-require("telescope").setup({})
+telescope.setup({})
+
+require("telescope").load_extension("live_grep_args")
