@@ -117,6 +117,14 @@ _fzf_git_fzf() {
     --bind='ctrl-/:change-preview-window(down,50%,border-top|hidden|)' "$@"
 }
 
+#source asdf for go
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+#GO path for chronologger from haydens .zshrc
+export GOPATH=$(asdf where golang)/packages
+export GOROOT=$(asdf where golang)/go
+
+export PATH=$PATH:$(go env GOPATH)/bin
 
 #Zoxide
 eval "$(zoxide init zsh)"
@@ -138,3 +146,11 @@ alias nimv='nvim'
 neofetch
 source ~/dotfiles/.config/zsh-syntax-highlighting/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#music terminal
+source ~/.config/zshMusic/zshmusic.zsh
+
+#TODO: Lines inbetween terminal outputs
+# setopt promptsubst
+# PS1=$'%U${(r:$COLUMNS:: :)}%u'$PS1
+
