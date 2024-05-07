@@ -141,9 +141,11 @@ eval "$(starship init zsh)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls='eza --icons --group-directories-first'
-alias config='cd ~/dotfiles/.config/'
+alias config='z ~/dotfiles/.config/'
+alias osh='z PublishingWeb'
 alias nivm='nvim'
 alias nimv='nvim'
+alias cd='z'
 
 #Startup commands
 neofetch
