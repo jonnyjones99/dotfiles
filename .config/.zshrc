@@ -129,6 +129,9 @@ export PATH=$PATH:$(go env GOPATH)/bin
 #Zoxide
 eval "$(zoxide init zsh)"
 
+# starship prompt theme
+eval "$(starship init zsh)"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -149,6 +152,7 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #music terminal
 source ~/.config/zshMusic/zshmusic.zsh
+
 
 #TODO: Lines inbetween terminal outputs
 # setopt promptsubst
