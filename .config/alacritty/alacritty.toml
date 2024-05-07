@@ -141,7 +141,9 @@ save_to_clipboard = false
 
 [window]
 decorations = "buttonless"
-opacity = 0.8
+# opacity = 0.8
+blur = true
+opacity = 0.5
 
 [window.class]
 general = "Alacritty"
