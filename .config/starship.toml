@@ -6,10 +6,14 @@ palette = "catppuccin_mocha"
 
 [character]
 # Note the use of Catppuccin color 'maroon'
-success_symbol = "[[♥](green)  ➜](maroon)"
+success_symbol = "[[♥](mauve)  ➜](mauve)"
 # success_symbol = "[➜(green) ❯](maroon)"
 error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+# vimcmd_symbol = "[❮](green)"
+vicmd_symbol = "(green)"
+
+[docker_context]
+disabled = true
 
 [directory]
 truncation_length = 4
