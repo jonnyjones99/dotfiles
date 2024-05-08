@@ -147,6 +147,9 @@ alias nivm='nvim'
 alias nimv='nvim'
 alias cd='z'
 
+alias gc='git commit -m'
+alias gd='git diff'
+
 #Startup commands
 neofetch
 source ~/dotfiles/.config/zsh-syntax-highlighting/catppuccin_mocha-zsh-syntax-highlighting.zsh
