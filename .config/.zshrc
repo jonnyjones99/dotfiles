@@ -120,6 +120,12 @@ _fzf_git_fzf() {
 #source asdf for go
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
+#PATH for zsh scripts
+PATH="$PATH":"$HOME/.local/scripts/"
+
+# control + f to open tmux sessionizer
+bindkey -s ^f "tmux-sessionizer\n"
+
 #GO path for chronologger from haydens .zshrc
 export GOPATH=$(asdf where golang)/packages
 export GOROOT=$(asdf where golang)/go
