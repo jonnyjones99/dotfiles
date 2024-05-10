@@ -53,6 +53,7 @@ Rather than symlinking each file you can use GNU stow to quickly symlink the ent
 - [BAT](https://github.com/sharkdp/bat)                              <-- Better CAT command
 - [GitDelta](https://dandavison.github.io/delta/installation.html)   <-- Nice Git that uses Bat
 - [FZF Git](https://github.com/junegunn/fzf-git.sh)                  <-- Nice FZF for git stuff
+- [Gitmux](https://github.com/arl/gitmux)                            <-- Git in tmux status bar
 
 
 ### Alias' I use
