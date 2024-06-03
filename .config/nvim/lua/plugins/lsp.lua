@@ -147,6 +147,8 @@ lsp.configure("emmet_language_server", {
 		"typescriptreact",
 		"vue",
 		"php",
+		"templ",
+		"go",
 	},
 })
 
