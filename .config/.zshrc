@@ -155,6 +155,8 @@ alias cd='z'
 
 alias gc='git commit -m'
 alias gd='git diff'
+alias gs='git status'
+alias lg='lazygit'
 
 #Startup commands
 neofetch
