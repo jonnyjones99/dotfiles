@@ -229,7 +229,7 @@ require("lazy").setup({
 			"jose-elias-alvarez/null-ls.nvim",
 		},
 		config = function()
-			require("plugins.mason-null-ls") -- require your null-ls config here (example below)
+			require("plugins.mason-null-ls")
 		end,
 	},
 
