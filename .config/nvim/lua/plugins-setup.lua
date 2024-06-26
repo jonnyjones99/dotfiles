@@ -139,14 +139,14 @@ require("lazy").setup({
 	},
 
 	-- Copilot Stuff
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function()
-			require("plugins.copilot")
-		end,
-	},
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	event = "InsertEnter",
+	-- 	config = function()
+	-- 		require("plugins.copilot")
+	-- 	end,
+	-- },
 
 	-- Turn copilot into a lsp completion source
 	{
