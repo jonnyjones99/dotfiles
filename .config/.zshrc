@@ -171,3 +171,11 @@ source ~/.config/zshMusic/zshmusic.zsh
 # setopt promptsubst
 # PS1=$'%U${(r:$COLUMNS:: :)}%u'$PS1
 
+
+# pnpm
+export PNPM_HOME="/Users/jonathanjones/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
