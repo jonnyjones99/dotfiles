@@ -16,6 +16,10 @@ opt.softtabstop = 4
 opt.autoindent = true
 opt.smartindent = true
 
+--folds
+-- opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
 --nowrap
 opt.wrap = false
 
