@@ -158,6 +158,9 @@ alias gd='git diff'
 alias gs='git status'
 alias lg='lazygit'
 
+#access remote mounted directories from Mountain Duck
+alias mounts='~/Library/Group Containers/G69SCX94XU.duck/Library/Application Support/duck/'
+
 #Startup commands
 neofetch
 source ~/dotfiles/.config/zsh-syntax-highlighting/catppuccin_mocha-zsh-syntax-highlighting.zsh
