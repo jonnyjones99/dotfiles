@@ -156,6 +156,7 @@ alias cd='z'
 alias gc='git commit -m'
 alias gd='git diff'
 alias gs='git status'
+alias gpo='git pull origin'
 alias lg='lazygit'
 
 #access remote mounted directories from Mountain Duck
