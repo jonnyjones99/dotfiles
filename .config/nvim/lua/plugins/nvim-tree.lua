@@ -45,10 +45,10 @@ nvim_tree.setup({
 		},
 		special_files = {},
 	},
-	filters = {
-		custom = { "^.git$" },
-		exclude = { ".gitignore" },
-	},
+	-- filters = {
+	-- 	custom = { "^.git$" },
+	-- 	exclude = { ".gitignore" },
+	-- },
 	modified = { enable = true },
 	actions = {
 		open_file = {

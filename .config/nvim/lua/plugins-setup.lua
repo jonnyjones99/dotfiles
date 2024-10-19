@@ -203,12 +203,12 @@ require("lazy").setup({
 	},
 
 	-- Better TypeScript Errors
-	{
-		"dmmulroy/ts-error-translator.nvim",
-		config = function()
-			require("ts-error-translator").setup()
-		end,
-	},
+	-- {
+	-- 	"dmmulroy/ts-error-translator.nvim",
+	-- 	config = function()
+	-- 		require("ts-error-translator").setup()
+	-- 	end,
+	-- },
 
 	--linting & formatting
 	-- null is being deprecated at some point so need to switch to another plugin
@@ -236,15 +236,5 @@ require("lazy").setup({
 	-- astro support
 	{
 		"wuelnerdotexe/vim-astro",
-	},
-
-	-- Markdown
-	{
-		"OXY2DEV/markview.nvim",
-		lazy = false, -- Recommended
-		-- ft = "markdown" -- If you decide to lazy-load anyway
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
 	},
 })
