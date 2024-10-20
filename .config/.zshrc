@@ -162,6 +162,9 @@ alias lg='lazygit'
 #access remote mounted directories from Mountain Duck
 alias mounts='~/Library/Group Containers/G69SCX94XU.duck/Library/Application Support/duck/'
 
+#tree command
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+
 #Startup commands
 neofetch
 source ~/dotfiles/.config/zsh-syntax-highlighting/catppuccin_mocha-zsh-syntax-highlighting.zsh
