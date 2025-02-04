@@ -2,6 +2,10 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
 require("mason").setup({
+	registries = {
+		"github:mason-org/mason-registry",
+		"github:crashdummyy/mason-registry",
+	},
 	ui = { border = "rounded" },
 })
 

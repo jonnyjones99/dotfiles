@@ -20,5 +20,13 @@ bufferline.setup({
 				text_align = "left",
 			},
 		},
+		custom_filter = function(buf_number)
+			local buf_name = vim.fn.bufname(buf_number)
+			-- Exclude virtual files (e.g., '__virtual.html', '__virtual.cs')
+			if buf_name:match("__virtual%.") then
+				return false
+			end
+			return true
+		end,
 	},
 })
