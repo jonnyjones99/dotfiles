@@ -153,6 +153,7 @@ lsp.configure("emmet_language_server", {
 		"php",
 		"templ",
 		"go",
+		"razor",
 	},
 })
 
