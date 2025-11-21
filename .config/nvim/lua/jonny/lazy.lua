@@ -22,4 +22,12 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
-require("lazy").setup("jonny.plugins")
+require("lazy").setup({ { import = "jonny.plugins" }, { import = "jonny.plugins.lsp" } }, {
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false,
+  },
+})
