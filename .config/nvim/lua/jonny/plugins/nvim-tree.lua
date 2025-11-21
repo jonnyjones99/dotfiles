@@ -12,6 +12,7 @@ return {
       view = {
         width = 35,
         relativenumber = true,
+        side = "right",
       },
       -- change folder arrow icons
       renderer = {
@@ -32,6 +33,7 @@ return {
       -- window splits
       actions = {
         open_file = {
+          quit_on_open = true,
           window_picker = {
             enable = false,
           },
