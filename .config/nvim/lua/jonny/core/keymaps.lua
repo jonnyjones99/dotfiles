@@ -27,7 +27,7 @@ keymap.set("n", "<leader><Bs>", ":LspRestart<cr>")
 -- keymap.set("n", "<leader>p", "<cmd>lua require('harpoon.ui').nav_prev()<cr>")
 
 -- nvim tree
-keymap.set("n", "<C-t>", ":NvimTreeToggle<cr>", { silent = true })
+-- keymap.set("n", "<C-t>", ":NvimTreeToggle<cr>", { silent = true })
 
 -- fzf
 -- \\ in this case just means \, but you use a \ as an escape char in lua
