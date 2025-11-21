@@ -1,65 +1,65 @@
-	return {
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		event = "VeryLazy",
-		config = function()
-local harpoon = require("harpoon")
-local k = require("util.customkey")
-local opts = require("util.customkey").opts
-
-harpoon:setup({
-	settings = {
-		save_on_toggle = true, -- Save state on window toggle
-		mark_branch = true, --set harpoon marks per branch
+return {
+	"ThePrimeagen/harpoon",
+	branch = "harpoon2",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
 	},
-})
+	event = "VeryLazy",
+	config = function()
+		local harpoon = require("harpoon")
+		local k = require("util.customkey")
+		local opts = require("util.customkey").opts
 
--- Append to Harpoon List
-k.nmap({
-	"<leader>a",
-	function()
-		harpoon:list():add()
-	end,
-	opts({ desc = "Append File to Harpoon" }),
-})
+		harpoon:setup({
+			settings = {
+				save_on_toggle = true, -- Save state on window toggle
+				mark_branch = true, --set harpoon marks per branch
+			},
+		})
 
--- Display Harpoon List
-k.nmap({
-	"<leader>e",
-	function()
-		harpoon.ui:toggle_quick_menu(harpoon:list())
-	end,
-	opts({ desc = "List Harpoon Files" }),
-})
+		-- Append to Harpoon List
+		k.nmap({
+			"<leader>a",
+			function()
+				harpoon:list():add()
+			end,
+			opts({ desc = "Append File to Harpoon" }),
+		})
 
--- Go to Previous Harpoon File
-k.nmap({
-	"<leader>p",
-	function()
-		harpoon:list():prev({ ui_nav_wrap = true })
-	end,
-	opts({ desc = "Previous Harpoon File" }),
-})
+		-- Display Harpoon List
+		k.nmap({
+			"<leader>e",
+			function()
+				harpoon.ui:toggle_quick_menu(harpoon:list())
+			end,
+			opts({ desc = "List Harpoon Files" }),
+		})
 
--- Go to Next Harpoon File
-k.nmap({
-	"<leader>n",
-	function()
-		harpoon:list():next({ ui_nav_wrap = true })
-	end,
-	opts({ desc = "Next Harpoon File" }),
-})
+		-- Go to Previous Harpoon File
+		k.nmap({
+			"<leader>p",
+			function()
+				harpoon:list():prev({ ui_nav_wrap = true })
+			end,
+			opts({ desc = "Previous Harpoon File" }),
+		})
 
--- Clear harpoon List
-k.nmap({
-	"<leader>ac",
-	function()
-		harpoon:list():clear()
+		-- Go to Next Harpoon File
+		k.nmap({
+			"<leader>n",
+			function()
+				harpoon:list():next({ ui_nav_wrap = true })
+			end,
+			opts({ desc = "Next Harpoon File" }),
+		})
+
+		-- Clear harpoon List
+		k.nmap({
+			"<leader>ac",
+			function()
+				harpoon:list():clear()
+			end,
+			opts({ desc = "Clear Harpoon List" }),
+		})
 	end,
-	opts({ desc = "Clear Harpoon List" }),
-})
-		end,
-	}
+}
