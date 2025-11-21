@@ -7,9 +7,6 @@ local keymap = vim.keymap -- for convenience
 --better save
 keymap.set("n", "<leader>w", ":w<CR>")
 
--- easy escape in insert mode
-keymap.set("i", "jj", "<ESC>", { silent = true })
-
 --move line up and down
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -37,18 +34,18 @@ keymap.set("n", "<C-t>", ":NvimTreeToggle<cr>", { silent = true })
 -- keymap.set("n", "\\", ":FzfLua files<cr>", { silent = true })
 
 -- Telescope
-local builtin = require("telescope.builtin")
-keymap.set("n", "<leader>ff", builtin.find_files, {})
-keymap.set("n", "<leader>fg", builtin.live_grep, {})
-keymap.set("n", "<leader>fb", builtin.buffers, {})
-keymap.set("n", "<leader>fh", builtin.help_tags, {})
+-- local builtin = require("telescope.builtin")
+-- keymap.set("n", "<leader>ff", builtin.find_files, {})
+-- keymap.set("n", "<leader>fg", builtin.live_grep, {})
+-- keymap.set("n", "<leader>fb", builtin.buffers, {})
+-- keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 --bufferline
-keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
-keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
+-- keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
+-- keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
 
 -- undotree
-keymap.set("n", "<C-u>", ":UndotreeToggle<CR>", { silent = true })
+-- keymap.set("n", "<C-u>", ":UndotreeToggle<CR>", { silent = true })
 
 -- toggle between tabwidth of 2 and 4
 vim.keymap.set("n", "<leader>tw", function()
@@ -71,7 +68,7 @@ end)
 
 -- oil
 -- vim.keymap.set("n", "<leader>t", "<cmd>lua require('oil').toggle_float()<CR>", { desc = "Oil" })
-vim.keymap.set("n", "<leader>t", function()
-	vim.cmd("vsplit | wincmd l")
-	require("oil").open()
-end)
+-- vim.keymap.set("n", "<leader>t", function()
+-- 	vim.cmd("vsplit | wincmd l")
+-- 	require("oil").open()
+-- end)

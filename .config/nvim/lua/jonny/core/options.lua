@@ -65,12 +65,15 @@ opt.showmatch = true
 --highlight on yank
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
 
+--better netrw
+vim.cmd("let g:netrw_liststyle = 3")
+
 --php
-vim.cmd("autocmd bufnewfile,bufread *.php set filetype=php")
+-- vim.cmd("autocmd bufnewfile,bufread *.php set filetype=php")
 
 --templ go
-vim.filetype.add({ extensions = { templ = "templ" } })
-vim.cmd("autocmd bufnewfile,bufread *.templ set filetype=templ")
+-- vim.filetype.add({ extensions = { templ = "templ" } })
+-- vim.cmd("autocmd bufnewfile,bufread *.templ set filetype=templ")
 
 -- for some reason i need this to enable treesitter highlighting
 -- vim.cmd("autocmd BufEnter * TSEnable highlight")
