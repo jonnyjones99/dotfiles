@@ -11,15 +11,6 @@ return {
 
     -- configure treesitter
     treesitter.setup({ -- enable syntax highlighting
-      highlight = {
-        enable = true,
-      },
-      -- enable indentation
-      indent = { enable = true },
-      -- enable autotagging (w/ nvim-ts-autotag plugin)
-      autotag = {
-        enable = true,
-      },
       -- ensure these language parsers are installed
       ensure_installed = {
         "json",
@@ -42,6 +33,32 @@ return {
         "query",
         "vimdoc",
         "c",
+      },
+      -- auto install parsers
+      sync_install = false,
+      auto_install = true,
+      ignore_install = {},
+      modules = {},
+      highlight = {
+        enable = true,
+        -- Disable vim's built-in syntax highlighting to avoid conflicts
+        additional_vim_regex_highlighting = false,
+      },
+      -- enable indentation
+      indent = { enable = true },
+      -- enable autotagging (w/ nvim-ts-autotag plugin)
+      autotag = {
+        enable = true,
+        filetypes = {
+          "html",
+          "javascript",
+          "typescript",
+          "jsx",
+          "tsx",
+          "svelte",
+          "vue",
+          "xml",
+        },
       },
       incremental_selection = {
         enable = true,

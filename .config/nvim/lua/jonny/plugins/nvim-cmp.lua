@@ -39,6 +39,35 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
         ["<C-e>"] = cmp.mapping.abort(), -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        -- Super Tab functionality
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            -- If completion menu is visible, select next item or confirm
+            if luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            else
+              cmp.select_next_item()
+            end
+          elseif luasnip.expand_or_jumpable() then
+            -- If snippet is available, expand or jump
+            luasnip.expand_or_jump()
+          else
+            -- Otherwise, fall back to default tab behavior
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            -- If completion menu is visible, select previous item
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            -- If snippet is available, jump backwards
+            luasnip.jump(-1)
+          else
+            -- Otherwise, fall back to default shift-tab behavior
+            fallback()
+          end
+        end, { "i", "s" }),
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({

@@ -64,5 +64,68 @@ return {
 		vim.keymap.set("n", "<leader>l", function()
 			try_linting()
 		end, { desc = "Trigger linting for current file" })
+
+		-- Configure diagnostic virtual text (inline errors/warnings)
+		-- This applies to both LSP diagnostics and linter diagnostics
+		local diagnostics_enabled = true
+
+		local function toggle_diagnostics()
+			diagnostics_enabled = not diagnostics_enabled
+			if diagnostics_enabled then
+				vim.diagnostic.config({
+					virtual_text = {
+						spacing = 4,
+						prefix = "●",
+						severity = {
+							min = vim.diagnostic.severity.HINT,
+						},
+					},
+					signs = true,
+					underline = true,
+					update_in_insert = false,
+				})
+				vim.notify("Diagnostics enabled", vim.log.levels.INFO)
+			else
+				vim.diagnostic.config({
+					virtual_text = false,
+					signs = false,
+					underline = false,
+				})
+				vim.notify("Diagnostics disabled", vim.log.levels.INFO)
+			end
+		end
+
+		-- Initial diagnostic configuration
+		vim.diagnostic.config({
+			virtual_text = {
+				spacing = 4,
+				prefix = "●",
+				severity = {
+					min = vim.diagnostic.severity.HINT,
+				},
+			},
+			signs = true,
+			underline = true,
+			update_in_insert = false,
+		})
+
+		-- Customize diagnostic signs
+		local signs = {
+			{ name = "DiagnosticSignError", text = "✗", texthl = "DiagnosticSignError" },
+			{ name = "DiagnosticSignWarn", text = "⚠", texthl = "DiagnosticSignWarn" },
+			{ name = "DiagnosticSignHint", text = "➤", texthl = "DiagnosticSignHint" },
+			{ name = "DiagnosticSignInfo", text = "ℹ", texthl = "DiagnosticSignInfo" },
+		}
+
+		for _, sign in ipairs(signs) do
+			vim.fn.sign_define(sign.name, {
+				texthl = sign.name,
+				text = sign.text,
+				numhl = "",
+			})
+		end
+
+		-- Keybind to toggle diagnostics
+		vim.keymap.set("n", "<leader>td", toggle_diagnostics, { desc = "Toggle diagnostics" })
 	end,
 }
