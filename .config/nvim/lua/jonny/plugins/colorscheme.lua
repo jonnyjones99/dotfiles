@@ -25,6 +25,7 @@ return {
 			    telescope = true,
 			    notify = true,
 			    mini = true,
+			    treesitter = true, -- Enable treesitter highlighting support
 			},
 		})
 
