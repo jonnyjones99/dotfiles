@@ -16,6 +16,7 @@ sketchybar --add item event_gap right \
 sketchybar --add item event_pill right \
            --set event_pill \
               drawing=off \
+              updates=on \
               update_freq=60 \
               icon=󰺁 \
               icon.color="$PEACH" \
