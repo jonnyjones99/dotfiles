@@ -51,6 +51,7 @@ source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/widgets/volume.sh"
 source "$ITEM_DIR/widgets/battery.sh"
 source "$ITEM_DIR/widgets/clock.sh"
+source "$ITEM_DIR/widgets/calendar.sh"
 
 ##### Force initial render #####
 sketchybar --update
