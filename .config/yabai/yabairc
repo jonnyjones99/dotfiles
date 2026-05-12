@@ -43,3 +43,12 @@ yabai -m rule --add app="Simulator" manage=on
 #ref rockyzhand24 answer: https://github.com/koekeishiya/yabai/issues/681
 
 yabai -m config external_bar all:32:0
+
+# Sketchybar integration — trigger custom event when window state changes
+# so per-space app icons stay in sync.
+yabai -m signal --add event=window_focused            action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=application_front_switched action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_created            action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed          action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_moved              action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=space_changed             action="sketchybar --trigger windows_on_spaces"

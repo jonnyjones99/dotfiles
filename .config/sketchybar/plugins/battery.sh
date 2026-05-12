@@ -1,28 +1,35 @@
-#!/bin/sh
+#!/usr/bin/env bash
+source "$CONFIG_DIR/colors.sh"
 
-PERCENTAGE="$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)"
+PERCENTAGE="$(pmset -g batt | grep -Eo '[0-9]+%' | cut -d% -f1)"
 CHARGING="$(pmset -g batt | grep 'AC Power')"
 
-if [ "$PERCENTAGE" = "" ]; then
+if [ -z "$PERCENTAGE" ]; then
   exit 0
 fi
 
 case "${PERCENTAGE}" in
-  9[0-9]|100) ICON=""
-  ;;
-  [6-8][0-9]) ICON=""
-  ;;
-  [3-5][0-9]) ICON=""
-  ;;
-  [1-2][0-9]) ICON=""
-  ;;
-  *) ICON=""
+  100|9[0-9]) ICON=󰂂 ;;
+  8[0-9])     ICON=󰂁 ;;
+  7[0-9])     ICON=󰂀 ;;
+  6[0-9])     ICON=󰁿 ;;
+  5[0-9])     ICON=󰁾 ;;
+  4[0-9])     ICON=󰁽 ;;
+  3[0-9])     ICON=󰁼 ;;
+  2[0-9])     ICON=󰁻 ;;
+  1[0-9])     ICON=󰁺 ;;
+  *)          ICON=󰁺 ;;
 esac
 
-if [[ "$CHARGING" != "" ]]; then
-  ICON=""
+if [ -n "$CHARGING" ]; then
+  ICON=󰂄
+  COLOR=$MAUVE
+elif [ "$PERCENTAGE" -lt 20 ]; then
+  COLOR=$RED
+elif [ "$PERCENTAGE" -lt 60 ]; then
+  COLOR=$YELLOW
+else
+  COLOR=$GREEN
 fi
 
-# The item invoking this script (name $NAME) will get its icon and label
-# updated with the current battery status
-sketchybar --set "$NAME" icon="$ICON" label="${PERCENTAGE}%"
+sketchybar --set "$NAME" icon="$ICON" icon.color="$COLOR" label="${PERCENTAGE}%"
