@@ -80,7 +80,14 @@ return {
 							min = vim.diagnostic.severity.HINT,
 						},
 					},
-					signs = true,
+					signs = {
+						text = {
+							[vim.diagnostic.severity.ERROR] = "✗",
+							[vim.diagnostic.severity.WARN] = "⚠",
+							[vim.diagnostic.severity.INFO] = "ℹ",
+							[vim.diagnostic.severity.HINT] = "➤",
+						},
+					},
 					underline = true,
 					update_in_insert = false,
 				})
@@ -104,26 +111,18 @@ return {
 					min = vim.diagnostic.severity.HINT,
 				},
 			},
-			signs = true,
+			signs = {
+				-- Customize diagnostic signs using the new API
+				text = {
+					[vim.diagnostic.severity.ERROR] = "✗",
+					[vim.diagnostic.severity.WARN] = "⚠",
+					[vim.diagnostic.severity.INFO] = "ℹ",
+					[vim.diagnostic.severity.HINT] = "➤",
+				},
+			},
 			underline = true,
 			update_in_insert = false,
 		})
-
-		-- Customize diagnostic signs
-		local signs = {
-			{ name = "DiagnosticSignError", text = "✗", texthl = "DiagnosticSignError" },
-			{ name = "DiagnosticSignWarn", text = "⚠", texthl = "DiagnosticSignWarn" },
-			{ name = "DiagnosticSignHint", text = "➤", texthl = "DiagnosticSignHint" },
-			{ name = "DiagnosticSignInfo", text = "ℹ", texthl = "DiagnosticSignInfo" },
-		}
-
-		for _, sign in ipairs(signs) do
-			vim.fn.sign_define(sign.name, {
-				texthl = sign.name,
-				text = sign.text,
-				numhl = "",
-			})
-		end
 
 		-- Keybind to toggle diagnostics
 		vim.keymap.set("n", "<leader>td", toggle_diagnostics, { desc = "Toggle diagnostics" })

@@ -7,6 +7,15 @@ return {
             options = {
                 show_buffer_close_icons = false,
                 show_close_icon = false,
+                -- Filter out virtual Razor buffers
+                custom_filter = function(buf_number, buf_numbers)
+                    local name = vim.api.nvim_buf_get_name(buf_number)
+                    -- Hide buffers with __virtual in the name
+                    if string.match(name, "__virtual") then
+                        return false
+                    end
+                    return true
+                end,
                 offsets = {
                     {
                         filetype = "NvimTree",

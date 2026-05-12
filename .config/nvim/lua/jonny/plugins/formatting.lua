@@ -20,6 +20,8 @@ return {
         liquid = { "prettier" },
         lua = { "stylua" },
         python = { "isort", "black" },
+        -- C# and Razor files will use LSP formatter via lsp_fallback
+        -- The csharp_ls LSP server provides formatting capabilities
       },
       format_on_save = {
         lsp_fallback = true,

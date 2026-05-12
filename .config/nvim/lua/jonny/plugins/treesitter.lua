@@ -33,6 +33,7 @@ return {
         "query",
         "vimdoc",
         "c",
+        "c_sharp", -- C# parser
       },
       -- auto install parsers
       sync_install = false,

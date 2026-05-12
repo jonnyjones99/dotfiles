@@ -14,6 +14,7 @@ return {
         "emmet_ls",
         "pyright",
         "eslint",
+        -- Note: roslyn is installed via custom registry and handles both C# and Razor via cohosting
       },
     },
     dependencies = {
@@ -26,6 +27,10 @@ return {
               package_pending = "➜",
               package_uninstalled = "✗",
             },
+          },
+          registries = {
+            "github:mason-org/mason-registry",
+            "github:Crashdummyy/mason-registry", -- Custom registry for rzls and roslyn
           },
         },
       },
