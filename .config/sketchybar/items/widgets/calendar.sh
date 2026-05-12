@@ -45,7 +45,7 @@ sketchybar --set date \
               popup.background.border_width=1 \
               popup.background.corner_radius=10 \
               popup.horizontal=off \
-              popup.align=center \
+              popup.align=right \
               popup.y_offset=4 \
            --subscribe date mouse.entered mouse.exited mouse.exited.global
 

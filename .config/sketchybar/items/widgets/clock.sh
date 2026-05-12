@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-# Date and time widgets + right-island bracket grouping.
+# Date and time widgets.
+#
+# Right-side items are inserted right-to-left, so the order of these
+# two --add calls determines that date ends up to the right of time.
+# The status_bracket that groups these with volume/battery/mem is
+# defined in sketchybarrc, after all member items exist.
 
 sketchybar --add item date right \
            --set date \
@@ -20,11 +25,3 @@ sketchybar --add item time right \
               label.color="$TEXT" \
               label.padding_right=10 \
               script="$PLUGIN_DIR/time.sh"
-
-sketchybar --add bracket status_bracket volume battery date time \
-           --set status_bracket \
-              background.color="$BRACKET_BG" \
-              background.corner_radius=12 \
-              background.height=28 \
-              background.padding_left=4 \
-              background.padding_right=4

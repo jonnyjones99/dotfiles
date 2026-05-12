@@ -47,12 +47,30 @@ sketchybar --default "${default[@]}"
 sketchybar --add event windows_on_spaces
 
 ##### Items #####
+# Right-side items are inserted right-to-left, so source files are
+# ordered rightmost-first. Desired LTR layout for the status group:
+#   mem · volume · time · date · battery
+# That means insertion order must be:
+#   battery → date,time → volume → mem
 source "$ITEM_DIR/spaces.sh"
-source "$ITEM_DIR/widgets/volume.sh"
 source "$ITEM_DIR/widgets/battery.sh"
 source "$ITEM_DIR/widgets/clock.sh"
+source "$ITEM_DIR/widgets/volume.sh"
+source "$ITEM_DIR/widgets/system.sh"
 source "$ITEM_DIR/widgets/calendar.sh"
 source "$ITEM_DIR/widgets/music.sh"
+
+##### Bracket grouping for the status island #####
+# Defined here so every member item is guaranteed to exist regardless
+# of which widget file it lives in. The order of members below is just
+# a list — visual order is set by the source order above.
+sketchybar --add bracket status_bracket battery date time volume mem \
+           --set status_bracket \
+              background.color="$BRACKET_BG" \
+              background.corner_radius=12 \
+              background.height=28 \
+              background.padding_left=4 \
+              background.padding_right=4
 
 ##### Force initial render #####
 sketchybar --update
