@@ -118,7 +118,7 @@ _fzf_git_fzf() {
 }
 
 #source asdf for go
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+#. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 #PATH for zsh scripts
 PATH="$PATH":"$HOME/.local/scripts/"
@@ -127,10 +127,9 @@ PATH="$PATH":"$HOME/.local/scripts/"
 bindkey -s ^f "tmux-sessionizer\n"
 
 #GO path for chronologger from haydens .zshrc
-export GOPATH=$(asdf where golang)/packages
-export GOROOT=$(asdf where golang)/go
-
-export PATH=$PATH:$(go env GOPATH)/bin
+#export GOPATH=$(asdf where golang)/packages
+#export GOROOT=$(asdf where golang)/go
+#export PATH=$PATH:$(go env GOPATH)/bin
 
 #Zoxide
 eval "$(zoxide init zsh)"
@@ -185,3 +184,6 @@ esac
 # pnpm end
 export PATH="/Users/jonathanjones/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/Users/jonathanjones/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# Created by `pipx` on 2026-02-20 12:38:38
+export PATH="$PATH:/Users/jonathanjones/.local/bin"

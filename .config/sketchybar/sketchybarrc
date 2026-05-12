@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+# Two-island sketchybar config.
+# Left island:  yabai spaces with focused-app icon per pill.
+# Right island: volume + battery + clock.
+
+export CONFIG_DIR="$HOME/dotfiles/.config/sketchybar"
+export PLUGIN_DIR="$CONFIG_DIR/plugins"
+export ITEM_DIR="$CONFIG_DIR/items"
+
+source "$CONFIG_DIR/colors.sh"
+
+##### Bar #####
+sketchybar --bar \
+  position=top \
+  height=37 \
+  blur_radius=30 \
+  color="$BAR_COLOR" \
+  padding_left=6 \
+  padding_right=6 \
+  margin=8 \
+  y_offset=4 \
+  corner_radius=0 \
+  sticky=on
+
+##### Defaults applied to every subsequent item #####
+default=(
+  padding_left=4
+  padding_right=4
+  icon.font="JetBrainsMono Nerd Font:Bold:14.0"
+  label.font="JetBrainsMono Nerd Font:Bold:13.0"
+  icon.color="$TEXT"
+  label.color="$TEXT"
+  icon.padding_left=6
+  icon.padding_right=4
+  label.padding_left=4
+  label.padding_right=6
+  background.height=24
+  background.corner_radius=8
+  background.padding_left=2
+  background.padding_right=2
+)
+sketchybar --default "${default[@]}"
+
+##### Custom events #####
+# Triggered by yabai signals (see yabairc) to refresh per-space app icons
+# whenever a window is focused, created, destroyed, or moved.
+sketchybar --add event windows_on_spaces
+
+##### Items #####
+# Right-side items are inserted right-to-left, so source files are
+# ordered rightmost-first. Desired LTR layout for the status group:
+#   mem · volume · time · date · battery
+# That means insertion order must be:
+#   battery → date,time → volume → mem
+source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/widgets/battery.sh"
+source "$ITEM_DIR/widgets/clock.sh"
+source "$ITEM_DIR/widgets/volume.sh"
+source "$ITEM_DIR/widgets/system.sh"
+source "$ITEM_DIR/widgets/calendar.sh"
+source "$ITEM_DIR/widgets/music.sh"
+
+##### Bracket grouping for the status island #####
+# Defined here so every member item is guaranteed to exist regardless
+# of which widget file it lives in. The order of members below is just
+# a list — visual order is set by the source order above.
+sketchybar --add bracket status_bracket battery date time volume mem \
+           --set status_bracket \
+              background.color="$BRACKET_BG" \
+              background.corner_radius=12 \
+              background.height=28 \
+              background.padding_left=4 \
+              background.padding_right=4
+
+##### Force initial render #####
+sketchybar --update
