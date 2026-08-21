@@ -4,6 +4,10 @@ return {
   dependencies = {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
+  init = function()
+    -- skip deprecated nvim-treesitter module integration for faster startup
+    vim.g.skip_ts_context_commentstring_module = true
+  end,
   config = function()
     -- import comment plugin safely
     local comment = require("Comment")
