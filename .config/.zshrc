@@ -131,12 +131,6 @@ bindkey -s ^f "tmux-sessionizer\n"
 #export GOROOT=$(asdf where golang)/go
 #export PATH=$PATH:$(go env GOPATH)/bin
 
-#Zoxide
-eval "$(zoxide init zsh)"
-
-# starship prompt theme
-eval "$(starship init zsh)"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -174,7 +168,6 @@ source ~/.config/zshMusic/zshmusic.zsh
 # setopt promptsubst
 # PS1=$'%U${(r:$COLUMNS:: :)}%u'$PS1
 
-
 # pnpm
 export PNPM_HOME="/Users/jonathanjones/Library/pnpm"
 case ":$PATH:" in
@@ -187,3 +180,16 @@ export PHP_INI_SCAN_DIR="/Users/jonathanjones/.config/herd-lite/bin:$PHP_INI_SCA
 
 # Created by `pipx` on 2026-02-20 12:38:38
 export PATH="$PATH:/Users/jonathanjones/.local/bin"
+
+# nvm: load in interactive shells too (was login-only in .zprofile), so tmux
+# panes get the nvm default node instead of a stale inherited version.
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+#Zoxide
+eval "$(zoxide init zsh)"
+
+# starship prompt theme
+eval "$(starship init zsh)"
+

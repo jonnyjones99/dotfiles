@@ -1,75 +1,67 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPre", "BufNewFile" },
+  branch = "main",
+  lazy = false,
   build = ":TSUpdate",
   dependencies = {
     "windwp/nvim-ts-autotag",
   },
   config = function()
-    -- import nvim-treesitter plugin
-    local treesitter = require("nvim-treesitter.configs")
+    require("nvim-treesitter").install({
+      "json",
+      "javascript",
+      "typescript",
+      "tsx",
+      "yaml",
+      "html",
+      "css",
+      "prisma",
+      "markdown",
+      "markdown_inline",
+      "svelte",
+      "graphql",
+      "bash",
+      "lua",
+      "vim",
+      "dockerfile",
+      "gitignore",
+      "query",
+      "vimdoc",
+      "c",
+      "c_sharp",
+    })
 
-    -- configure treesitter
-    treesitter.setup({ -- enable syntax highlighting
-      -- ensure these language parsers are installed
-      ensure_installed = {
+    require("nvim-ts-autotag").setup()
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = {
         "json",
         "javascript",
+        "javascriptreact",
         "typescript",
-        "tsx",
+        "typescriptreact",
         "yaml",
         "html",
         "css",
         "prisma",
         "markdown",
-        "markdown_inline",
         "svelte",
         "graphql",
+        "sh",
         "bash",
         "lua",
         "vim",
         "dockerfile",
         "gitignore",
         "query",
-        "vimdoc",
+        "help",
         "c",
-        "c_sharp", -- C# parser
+        "cs",
       },
-      -- auto install parsers
-      sync_install = false,
-      auto_install = true,
-      ignore_install = {},
-      modules = {},
-      highlight = {
-        enable = true,
-        -- Disable vim's built-in syntax highlighting to avoid conflicts
-        additional_vim_regex_highlighting = false,
-      },
-      -- enable indentation
-      indent = { enable = true },
-      -- enable autotagging (w/ nvim-ts-autotag plugin)
-      autotag = {
-        enable = true,
-        filetypes = {
-          "html",
-          "javascript",
-          "typescript",
-          "jsx",
-          "tsx",
-          "svelte",
-          "vue",
-          "xml",
-        },
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
-      },
+      callback = function()
+        vim.treesitter.start()
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
     })
   end,
 }

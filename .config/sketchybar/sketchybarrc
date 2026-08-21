@@ -13,7 +13,7 @@ source "$CONFIG_DIR/colors.sh"
 sketchybar --bar \
   position=top \
   height=37 \
-  blur_radius=30 \
+  blur_radius=0 \
   color="$BAR_COLOR" \
   padding_left=6 \
   padding_right=6 \
@@ -71,6 +71,42 @@ sketchybar --add bracket status_bracket battery date time volume mem \
               background.height=28 \
               background.padding_left=4 \
               background.padding_right=4
+
+##### Claude Code session tracker #####
+# Lists live Claude sessions (by tmux name) with a status glyph; colour
+# reflects worst state: red=needs you, yellow=working, green=idle/done.
+# Click jumps the tmux client to the neediest session. Refreshed on the
+# custom claude_update event (fired by the CC hook) + every 30s self-heal.
+sketchybar --add event claude_update
+
+# nf-fa-terminal (U+F120) via byte escape — under U+F2FF so it renders in
+# this JetBrainsMono Nerd Font build (see system.sh note on missing F500+).
+CLAUDE_ICON=$(printf '\xef\x84\xa0')
+
+# Invisible spacer so claude_bracket floats as its own island (same trick
+# the calendar event_pill uses to separate brackets).
+sketchybar --add item claude_gap right \
+           --set claude_gap width=8 background.drawing=off
+
+sketchybar --add item claude right \
+           --set claude \
+              update_freq=30 \
+              icon="$CLAUDE_ICON" \
+              icon.font="JetBrainsMono Nerd Font:Bold:14.0" \
+              label.padding_left=4 \
+              label.padding_right=8 \
+              script="$PLUGIN_DIR/claude.sh" \
+           --subscribe claude claude_update
+
+sketchybar --add bracket claude_bracket claude \
+           --set claude_bracket \
+              background.color="$BRACKET_BG" \
+              background.corner_radius=12 \
+              background.height=28 \
+              background.padding_left=4 \
+              background.padding_right=4
+
+NAME=claude bash "$PLUGIN_DIR/claude.sh"
 
 ##### Force initial render #####
 sketchybar --update

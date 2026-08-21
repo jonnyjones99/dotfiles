@@ -1,0 +1,169 @@
+{
+  "model": "fable",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/jonathanjones/.nvm/versions/node/v24.15.0/bin/node\" \"/Users/jonathanjones/.claude/hooks/caveman-activate.js\"",
+            "timeout": 5,
+            "statusMessage": "Loading caveman mode..."
+          },
+          {
+            "type": "command",
+            "command": "bash \"/Users/jonathanjones/.claude/hooks/claude-session-state.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/jonathanjones/.nvm/versions/node/v24.15.0/bin/node\" \"/Users/jonathanjones/.claude/hooks/caveman-mode-tracker.js\"",
+            "timeout": 5,
+            "statusMessage": "Tracking caveman mode..."
+          },
+          {
+            "type": "command",
+            "command": "bash \"/Users/jonathanjones/.claude/hooks/claude-session-state.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"/Users/jonathanjones/.claude/hooks/claude-session-state.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"/Users/jonathanjones/.claude/hooks/claude-session-state.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"/Users/jonathanjones/.claude/hooks/claude-session-state.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"/Users/jonathanjones/.claude/hooks/caveman-statusline.sh\""
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "csharp-lsp@claude-plugins-official": true,
+    "everything-claude-code@everything-claude-code": true,
+    "frontend-design@claude-code-plugins": true,
+    "dotnet-skills@dotnet-skills": true,
+    "code-review@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "interface-design@interface-design": true,
+    "swift-lsp@claude-plugins-official": true,
+    "caveman@caveman": true,
+    "ponytail@ponytail": true,
+    "codex@openai-codex": true
+  },
+  "extraKnownMarketplaces": {
+    "everything-claude-code": {
+      "source": {
+        "source": "github",
+        "repo": "affaan-m/everything-claude-code"
+      }
+    },
+    "dotnet-skills": {
+      "source": {
+        "source": "github",
+        "repo": "dotnet/skills"
+      }
+    },
+    "interface-design": {
+      "source": {
+        "source": "github",
+        "repo": "Dammyjay93/interface-design"
+      }
+    },
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    },
+    "dotnet-claude-kit": {
+      "source": {
+        "source": "github",
+        "repo": "codewithmukesh/dotnet-claude-kit"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "voice": {
+    "enabled": false,
+    "mode": "hold"
+  },
+  "voiceEnabled": false,
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: Azure (Azure OpenAI, Azure AI Search, Cosmos DB, Entra ID / MSAL) — per CLAUDE.md and README",
+      "**Repository visibility**: assume private unless the remote host and repo name indicate otherwise, or a visibility check in the transcript shows public — not queryable via gh (origin remote unparseable)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured",
+      "**Default / protected branches**: Default branch is main; protection status not queryable via gh (org/repo not derivable from origin remote)",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Source control**: The trusted repo and its remote(s) only (no additional orgs configured)",
+      "**Trusted internal domains**: dev.azure.com (contacted once in this project's transcripts)",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: Azure OpenAI, Azure AI Search, Cosmos DB, Microsoft Graph (via MSAL on-behalf-of flow), SharePoint (indexed externally via managed Azure AI Search indexer, not part of this repo)",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: SharePoint corpus indexed into AZURE_SEARCH_SHAREPOINT_INDEX and custom-assistant uploaded documents indexed into AZURE_SEARCH_INDEX may contain client-confidential material; .env holds credentials (gitignored) — share only with audiences cleared at the [named+specifics] bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries prod or production as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries prod or production as a whole word or name segment; also Azure resources provisioned via azd/.azure env for this project",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (C5 RAG Chatbot Base — client-neutral SharePoint-aware RAG chatbot)",
+      "**Trusted repo**: This repo (C5 RAG Chatbot Base) and its configured origin remote; visibility unconfirmed via gh so treat as private by default — confidential material (non-secret) OK to commit here, but this is a client-neutral base meant to be forked per client, so client-specific values should not be hardcoded into source per CLAUDE.md/README convention",
+      "**Org-specific CLIs**: az (Azure CLI), azd (Azure Developer CLI) — used routinely in this project",
+      "No routine under <user>/ prefix qualifiers found"
+    ]
+  }
+}
